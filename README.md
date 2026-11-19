@@ -85,7 +85,7 @@ python analyze_w16u.py runs/2026-11-04_main --ens-dir ../prestage/prod_eval_fz/s
 python make_table_obj2_paired.py runs/2026-11-04_main analysis_s04               # tab:acq-paired
 cd ../analysis_tables
 python table_exclusion.py                 # tab:gpm-exclusion and the per-function decisions
-python table_repro_time.py                # tab:repro-time
+python table_repro_time.py                # median run times of sec:repro
 python table_gpm_fit.py                   # tab:gpm-fit
 python table_acq_ens_settings.py          # tab:acq-ens-settings
 python sensitivity_p1_rule_fig4b.py       # sec:acq-sensitivity
