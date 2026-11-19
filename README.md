@@ -186,3 +186,8 @@ OFML-GPN and Independent-GPN, and whether the function entered the comparison. I
 `experiments/analysis_tables/table_exclusion.py` from the run records; runs stopped before T = 200 are read from
 `<method>/stopped/rep_NN_rounds.json` (extracted from their checkpoints by
 `experiments/gpn_graph/scripts/extract_stopped_rounds.py`).
+
+## License
+
+MIT (see `LICENSE`). The run records are distributed under the same terms. The Harano Aji fonts used for the
+Japanese figures are not included (SIL Open Font License 1.1).

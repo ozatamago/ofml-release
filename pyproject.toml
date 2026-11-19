@@ -5,6 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "ofml"
 version = "0.1.0"
+license = { text = "MIT" }
 description = "Code and run records for the experiments of Sections 6.2 and 6.3 of the OFML paper"
 requires-python = ">=3.10"
 dependencies = [
