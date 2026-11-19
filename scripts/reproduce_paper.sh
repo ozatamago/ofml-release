@@ -17,6 +17,8 @@ echo "== Section 6.2: tab:gpm-fit"
 $PY table_gpm_fit.py
 echo "== Section 6.2: 95% coverage of OFML-GPN (sec:gpm-exclusion); the paper quotes the row 'mean' of 全体 (all 448 points)"
 $PY coverage_by_t.py $REPS | grep -A0 -E "^## |平均"
+echo "== Section 6.2: input range of the merge operation M (sec:gpm-bench; the paper: fraction beyond the length scale 0.15 = 1 - mean)"
+(cd "$ROOT/transfer/gpn" && JAX_PLATFORMS=cpu OFML_GPN_ALLOW_ANY_GRID=1 $PY analysis/p1_type_ranges.py | grep -m1 "^M ")
 echo "== Section 6.2: fig:exp-transfer, fig:exp-protocols"
 $PY plot_fig3_f4p_v2.py --reps $REPS --lang en --out "$ROOT/outputs/figures/fig_obj1_v2" > /dev/null
 $PY plot_protocols.py --lang en > /dev/null
@@ -26,6 +28,8 @@ cd "$ROOT/acquisition"
 $PY analyze_w16u.py runs/2026-11-04_main --ens-dir ../prestage/prod_eval_fz/s04/ens \
     --outdir runs/2026-11-04_main/analysis_s04 > /dev/null
 $PY make_table_obj2_paired.py runs/2026-11-04_main analysis_s04 > /dev/null
+echo "== Section 6.3: values of fig:exp-acquisition (b) quoted in the text"
+$PY fig_acquisition_values.py | tail -3
 echo "== Section 6.3: tab:acq-ens-settings"
 $PY table_acq_ens_settings.py
 echo "== Section 6.3: tab:acq-sd-err"
@@ -35,7 +39,7 @@ $PY sensitivity_p1_rule.py runs/2026-11-04_main
 $PY sensitivity_p1_rule_fig4b.py
 echo "== Section 6.3: fig:exp-acquisition, fig:exp-acq-protocols"
 $PY make_fig_obj2_f4p_v2.py runs/2026-11-04_main --ens-dir runs/prestage/prod_eval_fz/s04/ens \
-    --ens-label "setting selected in the pre-stage" --lang en --out "$ROOT/outputs/figures/fig_obj2_v2_s04" > /dev/null
+    --ens-label "selected setting" --lang en --out "$ROOT/outputs/figures/fig_obj2_v2_s04" > /dev/null
 $PY plot_protocols_w16u.py --lang en > /dev/null
 
 cd "$ROOT"

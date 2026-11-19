@@ -19,7 +19,7 @@ transfer/
 │   ├── run_p1_main.py                one run of OFML-GPN (assimilates D_0, then 200 IVR acquisitions)
 │   ├── run_p1_indep.py               one run of Independent-GPN (one composition per protocol, no shared modules)
 │   ├── run_p1_smoke.py               short test run
-│   ├── analysis/p1_type_ranges.py    ranges of the operation outputs of the true functions
+│   ├── analysis/p1_type_ranges.py    input and output ranges of each operation type (sec:gpm-bench)
 │   ├── scripts/p1_status.py          progress of a set of runs
 │   ├── scripts/extract_stopped_rounds.py   extraction of the records of stopped runs from their checkpoints
 │   └── runs/p1_main/                 run records (below)
@@ -50,9 +50,10 @@ All commands run in `transfer/analysis/` and read only the run records (CPU, sec
 |---|---|---|
 | fig:exp-transfer | `python plot_fig3_f4p_v2.py --reps 2,4,5,9,11,12,15,17,19,23,27,28 --lang en --out ../../outputs/figures/fig_obj1_v2` | `gpn/runs/p1_main/{ofml_gpn,indep_gpn}`, `ensembles/runs/main_2026-11-08` |
 | tab:exp-transfer | `python make_table_obj1.py --reps 2,4,5,9,11,12,15,17,19,23,27,28 --suffix _v12` | same |
-| tab:gpm-paired | `python make_table_obj1_paired.py` | same |
+| tab:gpm-paired (the text of Section 6.2 quotes the OFML-GPN - Independent-GPN rows) | `python make_table_obj1_paired.py` | same |
 | tab:gpm-exclusion | `python table_exclusion.py` | `gpn/runs/p1_main/{ofml_gpn,indep_gpn}` including `stopped/` |
 | coverage in sec:gpm-exclusion | `python coverage_by_t.py 2,4,5,9,11,12,15,17,19,23,27,28` (row "平均" of "全体") | `gpn/runs/p1_main/ofml_gpn/*.npz` |
+| input range of M (sec:gpm-bench; the text quotes about 15%) | `cd ../gpn && JAX_PLATFORMS=cpu OFML_GPN_ALLOW_ANY_GRID=1 python analysis/p1_type_ranges.py` (row M: 1 - mean) | none (12 true functions drawn apart from the comparison) |
 | tab:gpm-fit | `python table_gpm_fit.py` | `analysis/fit12/` (outputs of `p1_fit_check.py`, commands in `fit12/cmds.txt`) |
 | tab:gpm-hpo | values of `selected_<method>.json` | `ensembles/runs/hpo_2026-11-05_wide/` |
 | fig:exp-protocols | `python plot_protocols.py --lang en` | none |

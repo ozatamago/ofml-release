@@ -79,16 +79,31 @@ It uses the CPU only and takes about 30 seconds. Outputs go to `outputs/tables/`
 
 | Paper | Script | Details |
 |---|---|---|
-| fig:exp-transfer, tab:exp-transfer | `transfer/analysis/plot_fig3_f4p_v2.py`, `make_table_obj1.py` | [transfer/README.md](transfer/README.md) |
-| Appendix: tab:gpm-paired, tab:gpm-exclusion, tab:gpm-fit, coverage | `transfer/analysis/` | [transfer/README.md](transfer/README.md) |
-| fig:exp-acquisition, tab:acq-paired | `acquisition/make_fig_obj2_f4p_v2.py`, `make_table_obj2_paired.py` | [acquisition/README.md](acquisition/README.md) |
-| Appendix: tab:acq-sd-err, tab:acq-ens-settings, sec:acq-sensitivity | `acquisition/` | [acquisition/README.md](acquisition/README.md) |
+| Figure 3 (protocols of Section 6.2) | `transfer/analysis/plot_protocols.py` | [transfer/README.md](transfer/README.md) |
+| Figure 4 and Table 2 (results of Section 6.2) | `transfer/analysis/plot_fig3_f4p_v2.py`, `make_table_obj1.py` | [transfer/README.md](transfer/README.md) |
+| Numbers in the text of Section 6.2 (paired differences, coverage, input range of M) | `transfer/analysis/make_table_obj1_paired.py`, `coverage_by_t.py`, `transfer/gpn/analysis/p1_type_ranges.py` | [transfer/README.md](transfer/README.md) |
+| Figure 5 (protocols of Section 6.3) | `acquisition/plot_protocols_w16u.py` | [acquisition/README.md](acquisition/README.md) |
+| Figure 6 (results of Section 6.3) and the numbers in its text | `acquisition/make_fig_obj2_f4p_v2.py`, `fig_acquisition_values.py`, `make_table_obj2_paired.py` | [acquisition/README.md](acquisition/README.md) |
+| Appendix: tab:gpm-paired, tab:gpm-exclusion, tab:gpm-fit | `transfer/analysis/` | [transfer/README.md](transfer/README.md) |
+| Appendix: tab:acq-paired, tab:acq-sd-err, tab:acq-ens-settings, sec:acq-sensitivity | `acquisition/` | [acquisition/README.md](acquisition/README.md) |
 | Appendix G: run times | `scripts/table_repro_time.py` | median wall-clock time per run, from the run records |
+
+Figures 1 and 2 of the paper are diagrams of the method and of an example protocol; they contain no experimental
+results and are not generated here.
 
 ## Results
 
-**Section 6.2** (12 true functions; T = 200 target observations selected by IVR; mean over the true functions; bold =
-best in the column). Command: `cd transfer/analysis && python make_table_obj1.py --reps 2,4,5,9,11,12,15,17,19,23,27,28 --suffix _v12`.
+### Section 6.2: transfer across protocols
+
+![Figure 4](docs/fig_transfer.png)
+
+**Figure 4.** NRMSE(t) against the number t of target observations selected by IVR after the source data D_0,
+mean ± standard error over 12 true functions: (a) OFML-GPN and Independent-GPN, (b) the four deep-ensemble
+surrogates; columns: all 7 target protocols, the 4 serial and the 3 merge targets. Command:
+`cd transfer/analysis && python plot_fig3_f4p_v2.py --reps 2,4,5,9,11,12,15,17,19,23,27,28 --lang en --out ../../outputs/figures/fig_obj1_v2`.
+
+**Table 2** (mean over the 12 true functions; bold = best in the column). Command:
+`cd transfer/analysis && python make_table_obj1.py --reps 2,4,5,9,11,12,15,17,19,23,27,28 --suffix _v12`.
 
 | Surrogate model | All: NRMSE(0) | All: NRMSE(T) | All: AULC(T) | Serial: NRMSE(0) | Serial: NRMSE(T) | Serial: AULC(T) | Merge: NRMSE(0) | Merge: NRMSE(T) | Merge: AULC(T) |
 |---|---|---|---|---|---|---|---|---|---|
@@ -99,9 +114,19 @@ best in the column). Command: `cd transfer/analysis && python make_table_obj1.py
 | DAGNN-Cat-Ens | 1.125 | 0.325 | 0.475 | 1.130 | 0.419 | 0.589 | 1.359 | 0.356 | 0.519 |
 | Shared-Ens | 1.417 | 0.723 | 0.811 | 1.245 | 0.777 | 0.874 | 1.703 | 0.777 | 0.883 |
 
-**Section 6.3** (16 true functions; 92 acquisitions; paired difference of AULC(T): mean, 95% bootstrap interval, and
-the number of true functions on which the first acquisition function has the smaller AULC). Command: see
-[acquisition/README.md](acquisition/README.md).
+### Section 6.3: acquisition functions and uniform consistency
+
+![Figure 6](docs/fig_acquisition.png)
+
+**Figure 6.** (a) NRMSE of OFML-GPN (left) and OFML-Ens (right) with four acquisition functions, mean ± standard error
+over 16 true functions, against the number of observations including the 8 initial points. (b) With IVR, the maximum
+posterior variance, the maximum absolute error of the posterior mean, and the 95% coverage, on the protocols with
+(solid) and without (dashed) an initial point. Command:
+`cd acquisition && python make_fig_obj2_f4p_v2.py runs/2026-11-04_main --ens-dir runs/prestage/prod_eval_fz/s04/ens --ens-label "selected setting" --lang en --out ../outputs/figures/fig_obj2_v2_s04`.
+
+**Paired differences of AULC(T)** (appendix tab:acq-paired; mean, 95% bootstrap interval, and the number of true
+functions on which the first acquisition function has the smaller AULC; the text of Section 6.3 quotes the first row).
+Command: see [acquisition/README.md](acquisition/README.md).
 
 | Comparison | OFML-GPN | OFML-Ens |
 |---|---|---|

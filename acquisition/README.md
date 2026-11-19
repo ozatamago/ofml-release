@@ -19,6 +19,7 @@ acquisition/
 ├── make_table_obj2_paired.py   tab:acq-paired
 ├── make_fig_obj2_f4p_v2.py     fig:exp-acquisition (uses plot_w16u_uniform_split.py for panel (b))
 ├── plot_protocols_w16u.py      fig:exp-acq-protocols
+├── fig_acquisition_values.py   values of fig:exp-acquisition (b) quoted in the text of Section 6.3
 ├── sd_err_calibration.py       tab:acq-sd-err
 ├── table_acq_ens_settings.py   tab:acq-ens-settings
 ├── sensitivity_p1_rule.py      sec:acq-sensitivity: exclusion rule of Section 6.2 and the paired AULC difference
@@ -39,8 +40,9 @@ All commands run in `acquisition/` and read only the run records (CPU, seconds e
 
 | Paper | Command | Run records |
 |---|---|---|
-| tab:acq-paired | `python analyze_w16u.py runs/2026-11-04_main --ens-dir ../prestage/prod_eval_fz/s04/ens --outdir runs/2026-11-04_main/analysis_s04`, then `python make_table_obj2_paired.py runs/2026-11-04_main analysis_s04` | `runs/2026-11-04_main/gpn`, `runs/prestage/prod_eval_fz/s04/ens` |
-| fig:exp-acquisition | `python make_fig_obj2_f4p_v2.py runs/2026-11-04_main --ens-dir runs/prestage/prod_eval_fz/s04/ens --ens-label "setting selected in the pre-stage" --lang en --out ../outputs/figures/fig_obj2_v2_s04` | same, and `teachers/` |
+| tab:acq-paired (the text of Section 6.3 quotes its first row) | `python analyze_w16u.py runs/2026-11-04_main --ens-dir ../prestage/prod_eval_fz/s04/ens --outdir runs/2026-11-04_main/analysis_s04`, then `python make_table_obj2_paired.py runs/2026-11-04_main analysis_s04` | `runs/2026-11-04_main/gpn`, `runs/prestage/prod_eval_fz/s04/ens` |
+| fig:exp-acquisition | `python make_fig_obj2_f4p_v2.py runs/2026-11-04_main --ens-dir runs/prestage/prod_eval_fz/s04/ens --ens-label "selected setting" --lang en --out ../outputs/figures/fig_obj2_v2_s04` | same, and `teachers/` |
+| values of fig:exp-acquisition (b) in the text of Section 6.3 | `python fig_acquisition_values.py` | `runs/2026-11-04_main/gpn`, `runs/prestage/prod_eval_fz/s04/ens`, `teachers/` |
 | tab:acq-sd-err | `python sd_err_calibration.py runs/2026-11-04_main $PWD/runs/prestage/prod_eval_fz/s04/ens` | same |
 | tab:acq-ens-settings | `python table_acq_ens_settings.py` | `runs/prestage/prod_eval_fz/{s04,p02,shallow}/ens`, `runs/2026-11-04_main/ens_v2` |
 | tab:acq-ens-selection | values of `runs/prestage/e5/summary.json` (`val` = J of the search, `J_cpu` = J of the confirmation, `kappa_bar_cpu`) | `runs/prestage/{e4,e5,configs}` |
