@@ -1,0 +1,12 @@
+[00:45:45] trial psi={'w': 4, 'L': 2, 'd': 2, 'eta': 0.003000783133850832, 'K': 400, 'wd': 0.001, 'init': 'default'} reps=1016-1031 pols=ivr,maxvar,spacefill,random c=0 device=cuda out=../runs/prestage/e5/bundle/old
+[00:46:07] n=10 elapsed 21s mean NRMSE 1.0425 split 1
+[00:47:10] n=20 elapsed 84s mean NRMSE 1.0571 split 1
+[00:48:14] n=30 elapsed 148s mean NRMSE 0.9834 split 1
+[00:49:19] n=40 elapsed 213s mean NRMSE 0.9341 split 1
+[00:50:25] n=50 elapsed 279s mean NRMSE 0.8901 split 1
+[00:51:34] n=60 elapsed 348s mean NRMSE 0.8415 split 1
+[00:52:43] n=70 elapsed 417s mean NRMSE 0.8085 split 1
+[00:53:53] n=80 elapsed 487s mean NRMSE 0.7918 split 1
+[00:55:05] n=90 elapsed 559s mean NRMSE 0.7773 split 1
+[00:56:17] n=100 elapsed 631s mean NRMSE 0.7671 split 1
+[00:56:17] PS_TRIAL_DONE status=ok J=0.8870344002113305 J_pass=0.8666940314867552 kappa_bar=2.7779985901853124 fits=False seconds=632

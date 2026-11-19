@@ -1,0 +1,100 @@
+{
+ "reps": {
+  "16": {
+   "ofml": "excluded",
+   "ofml_host": "xeon6130-v100"
+  },
+  "17": {
+   "indep": "ok",
+   "indep_host": "xeon6130-v100",
+   "neural": "submitted",
+   "ofml": "ok",
+   "ofml_host": "xeon6130-v100"
+  },
+  "18": {
+   "ofml": "excluded",
+   "ofml_host": "xeon6130-v100"
+  },
+  "19": {
+   "indep": "ok",
+   "indep_host": "xeon6130-v100",
+   "neural": "submitted",
+   "ofml": "ok",
+   "ofml_host": "xeon6130-v100"
+  },
+  "20": {
+   "ofml": "excluded",
+   "ofml_host": "xeon6130-v100"
+  },
+  "21": {
+   "ofml": "excluded",
+   "ofml_host": "xeon6130-v100"
+  },
+  "22": {
+   "ofml": "excluded",
+   "ofml_host": "xeon6530-h100nvl"
+  },
+  "23": {
+   "indep": "ok",
+   "indep_host": "xeon6530-h100nvl",
+   "neural": "submitted",
+   "ofml": "ok",
+   "ofml_host": "xeon6530-h100nvl"
+  },
+  "24": {
+   "ofml": "excluded",
+   "ofml_host": "xeon6530-h100nvl"
+  },
+  "25": {
+   "ofml": "excluded",
+   "ofml_host": "xeon6530-h100nvl"
+  },
+  "26": {
+   "ofml": "excluded",
+   "ofml_host": "xeon6530-h100nvl"
+  },
+  "27": {
+   "indep": "ok",
+   "indep_host": "xeon6130-v100",
+   "neural": "submitted",
+   "ofml": "ok",
+   "ofml_host": "xeon6130-v100"
+  },
+  "28": {
+   "indep": "ok",
+   "indep_host": "xeon6530-h100nvl",
+   "neural": "submitted",
+   "ofml": "ok",
+   "ofml_host": "xeon6530-h100nvl"
+  },
+  "29": {
+   "indep": "ok",
+   "indep_host": "xeon6130-v100",
+   "neural": "submitted",
+   "ofml": "ok",
+   "ofml_host": "xeon6130-v100"
+  },
+  "30": {
+   "ofml": "excluded",
+   "ofml_host": "xeon6130-v100"
+  },
+  "31": {
+   "ofml": "excluded",
+   "ofml_host": "xeon6530-h100nvl"
+  },
+  "32": {
+   "indep": "ok",
+   "indep_host": "xeon6130-v100",
+   "neural": "submitted",
+   "ofml": "ok",
+   "ofml_host": "xeon6130-v100"
+  },
+  "33": {
+   "indep": "ok",
+   "indep_host": "xeon6130-v100",
+   "neural": "submitted",
+   "ofml": "ok",
+   "ofml_host": "xeon6130-v100"
+  }
+ }
+}

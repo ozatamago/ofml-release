@@ -1,0 +1,39 @@
+{
+ "latent_dim": 8,
+ "hidden": 3,
+ "n_hidden": 3,
+ "lr": 0.026663320549265103,
+ "wd": 8.189449654144018e-05,
+ "steps": 400,
+ "n_members": 5,
+ "packed": true,
+ "selection": {
+  "rule": "min mean Gaussian NLL of the noise-free truth under N(ens mean, ens var + 0.01), reps 1000-1007, random designs n in {8,25,50,100}",
+  "variant": "baseline ensemble (no prior functions, coupled weight decay) tuned by NLL",
+  "file": "runs/ens_hpo_uq_2026-11-08/hpo_nll_base.jsonl (space v3, CPU 1 thread/worker, packed)",
+  "selected_trial": 8,
+  "objective": 2.375357971299887,
+  "by_n": {
+   "8": 2.1841285074207764,
+   "25": 2.4832805149696284,
+   "50": 2.592108042981099,
+   "100": 2.2419148198280423
+  },
+  "mean_nrmse": 0.8406361102524901,
+  "mean_cov95": 0.589508056640625,
+  "by_n_nrmse": {
+   "8": 0.9689641947385508,
+   "25": 0.8482088464427935,
+   "50": 0.8052372155433489,
+   "100": 0.7401341842852671
+  },
+  "by_n_cov95": {
+   "8": 0.6326904296875,
+   "25": 0.583740234375,
+   "50": 0.5714111328125,
+   "100": 0.5701904296875
+  },
+  "boundary_in_space": {},
+  "note": "post hoc: the NLL criterion was chosen after seeing the ens_v2 production results"
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "n_hidden": 3,
+ "width": 64,
+ "latent_dim": 4,
+ "embed_dim": 4,
+ "lr": 0.02247776561307692,
+ "wd": 0.0002531884463936121,
+ "steps": 400,
+ "n_members": 5,
+ "dagnn_map": "state_width",
+ "method": "dagnn",
+ "selected_trial": 49,
+ "objective": 0.7031819620814352,
+ "by_time": {
+  "0": 0.9333358333632757,
+  "20": 0.7360377359916945,
+  "50": 0.6858427951743806,
+  "100": 0.6302839549836874,
+  "200": 0.5304094908941385
+ },
+ "n_params_per_member": 92289,
+ "boundary": {
+  "n_hidden": "upper",
+  "log2_width": "upper"
+ },
+ "n_trials": 50
+}

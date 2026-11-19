@@ -1,0 +1,92 @@
+[11-13 22:55:27] worker {'host': 'xeon6530-h100nvl', 'pid': 8502} campaign e4 device cuda noise 0.00100 tau 1.25
+[11-13 22:55:27] trial 12 [init] started: {'w': 128, 'L': 3, 'd': 5, 'eta': 0.0001519651847460845, 'K': 2693, 'wd': 3.4562258768579007e-06, 'init': 'he'} (t_est 0.42 h)
+[11-13 22:59:36] t0012 n=10 elapsed 248s mean NRMSE 1.3885 split 1
+[11-13 23:16:03] t0012 n=20 elapsed 1236s mean NRMSE 1.6619 split 1
+[11-13 23:33:06] t0012 n=30 elapsed 2259s mean NRMSE 1.1289 split 1
+[11-13 23:50:48] t0012 n=40 elapsed 3320s mean NRMSE 1.0077 split 1
+[11-14 00:09:11] t0012 n=50 elapsed 4424s mean NRMSE 0.9498 split 1
+[11-14 00:27:56] t0012 n=60 elapsed 5549s mean NRMSE 0.8342 split 1
+[11-14 00:47:23] t0012 n=70 elapsed 6716s mean NRMSE 0.7719 split 1
+[11-14 01:07:41] t0012 n=80 elapsed 7933s mean NRMSE 0.7338 split 1
+[11-14 01:28:42] t0012 n=90 elapsed 9194s mean NRMSE 0.7133 split 1
+[11-14 01:50:45] t0012 n=100 elapsed 10517s mean NRMSE 0.6860 split 1
+[11-14 01:50:45] trial 12 finished: status ok J 0.9910128464981043 J_pass 1.0640016556679393 kappa_bar 0.23745114482051527 fits True seconds 10517
+[11-14 01:50:45] trial 21 [init] started: {'w': 64, 'L': 5, 'd': 2, 'eta': 0.0002374674137009572, 'K': 1635, 'wd': 7.696888988731444e-05, 'init': 'default'} (t_est 0.21 h)
+[11-14 01:52:47] t0021 n=10 elapsed 122s mean NRMSE 1.0927 split 1
+[11-14 02:01:05] t0021 n=20 elapsed 620s mean NRMSE 1.0589 split 1
+[11-14 02:09:40] t0021 n=30 elapsed 1136s mean NRMSE 0.9734 split 1
+[11-14 02:18:33] t0021 n=40 elapsed 1668s mean NRMSE 0.9061 split 1
+[11-14 02:27:42] t0021 n=50 elapsed 2217s mean NRMSE 0.8587 split 1
+[11-14 02:37:01] t0021 n=60 elapsed 2776s mean NRMSE 0.7518 split 1
+[11-14 02:46:33] t0021 n=70 elapsed 3349s mean NRMSE 0.6960 split 1
+[11-14 02:56:24] t0021 n=80 elapsed 3940s mean NRMSE 0.6496 split 1
+[11-14 03:06:34] t0021 n=90 elapsed 4549s mean NRMSE 0.6067 split 1
+[11-14 03:17:07] t0021 n=100 elapsed 5182s mean NRMSE 0.5639 split 1
+[11-14 03:17:07] trial 21 finished: status ok J 0.8192367896265558 J_pass 0.9010110212831401 kappa_bar 0.12752375697568832 fits True seconds 5182
+[11-14 03:17:07] trial 28 [init] started: {'w': 32, 'L': 3, 'd': 4, 'eta': 0.0001918233566908257, 'K': 1347, 'wd': 0.0006951322403992474, 'init': 'default'} (t_est 0.09 h)
+[11-14 03:18:07] t0028 n=10 elapsed 60s mean NRMSE 1.0556 split 1
+[11-14 03:22:05] t0028 n=20 elapsed 298s mean NRMSE 1.0495 split 1
+[11-14 03:26:07] t0028 n=30 elapsed 540s mean NRMSE 0.9589 split 1
+[11-14 03:30:14] t0028 n=40 elapsed 787s mean NRMSE 0.8786 split 1
+[11-14 03:34:26] t0028 n=50 elapsed 1039s mean NRMSE 0.8310 split 1
+[11-14 03:38:41] t0028 n=60 elapsed 1295s mean NRMSE 0.7323 split 1
+[11-14 03:43:00] t0028 n=70 elapsed 1553s mean NRMSE 0.6813 split 1
+[11-14 03:47:20] t0028 n=80 elapsed 1813s mean NRMSE 0.6543 split 1
+[11-14 03:51:46] t0028 n=90 elapsed 2080s mean NRMSE 0.6154 split 1
+[11-14 03:56:18] t0028 n=100 elapsed 2351s mean NRMSE 0.5908 split 1
+[11-14 03:56:18] trial 28 finished: status ok J 0.8065571964093741 J_pass 0.881997859817509 kappa_bar 0.3975383983907605 fits True seconds 2351
+[11-14 03:56:24] gate 9b3225e9067023dc {'w': 32, 'L': 1, 'd': 2, 'eta': 0.002452400258273775, 'K': 400, 'wd': 1e-06, 'init': 'default'}: kappa 0.399 nrmse 0.573 pass@1.25 True (5s)
+[11-14 03:56:24] trial 39 [ei] started: {'w': 32, 'L': 1, 'd': 2, 'eta': 0.002452400258273775, 'K': 400, 'wd': 1e-06, 'init': 'default'} (t_est 0.02 h)
+[11-14 03:56:36] t0039 n=10 elapsed 12s mean NRMSE 1.0736 split 1
+[11-14 03:57:21] t0039 n=20 elapsed 58s mean NRMSE 1.0806 split 1
+[11-14 03:58:07] t0039 n=30 elapsed 103s mean NRMSE 0.9630 split 1
+[11-14 03:58:53] t0039 n=40 elapsed 150s mean NRMSE 0.9306 split 1
+[11-14 03:59:40] t0039 n=50 elapsed 197s mean NRMSE 0.8704 split 1
+[11-14 04:00:27] t0039 n=60 elapsed 244s mean NRMSE 0.7268 split 1
+[11-14 04:01:13] t0039 n=70 elapsed 290s mean NRMSE 0.6443 split 1
+[11-14 04:02:01] t0039 n=80 elapsed 338s mean NRMSE 0.5966 split 1
+[11-14 04:02:50] t0039 n=90 elapsed 386s mean NRMSE 0.5431 split 1
+[11-14 04:03:38] t0039 n=100 elapsed 435s mean NRMSE 0.5204 split 1
+[11-14 04:03:38] trial 39 finished: status ok J 0.7987008423660921 J_pass 0.9882115019563952 kappa_bar 0.32979067037108045 fits True seconds 435
+[11-14 04:03:48] gate 3c5f205e1011f896 {'w': 16, 'L': 3, 'd': 5, 'eta': 0.00803601258521486, 'K': 468, 'wd': 3.311943435891388e-06, 'init': 'default'}: kappa 0.243 nrmse 0.491 pass@1.25 True (8s)
+[11-14 04:03:48] trial 43 [ei] started: {'w': 16, 'L': 3, 'd': 5, 'eta': 0.00803601258521486, 'K': 468, 'wd': 3.311943435891388e-06, 'init': 'default'} (t_est 0.03 h)
+[11-14 04:04:09] t0043 n=10 elapsed 21s mean NRMSE 1.0839 split 1
+[11-14 04:05:31] t0043 n=20 elapsed 103s mean NRMSE 1.1021 split 1
+[11-14 04:06:53] t0043 n=30 elapsed 186s mean NRMSE 0.9744 split 1
+[11-14 04:08:18] t0043 n=40 elapsed 270s mean NRMSE 0.8955 split 1
+[11-14 04:09:43] t0043 n=50 elapsed 356s mean NRMSE 0.8690 split 1
+[11-14 04:11:08] t0043 n=60 elapsed 441s mean NRMSE 0.7258 split 1
+[11-14 04:12:35] t0043 n=70 elapsed 527s mean NRMSE 0.6577 split 1
+[11-14 04:14:02] t0043 n=80 elapsed 615s mean NRMSE 0.6274 split 1
+[11-14 04:15:31] t0043 n=90 elapsed 703s mean NRMSE 0.5801 split 1
+[11-14 04:17:01] t0043 n=100 elapsed 794s mean NRMSE 0.5339 split 1
+[11-14 04:17:01] trial 43 finished: status ok J 0.8061650443644979 J_pass 0.934810315188076 kappa_bar 0.2920078273926501 fits True seconds 794
+[11-14 04:17:02] rho_LOO before trial 49: 0.799 -> EI for 49-72
+[11-14 04:18:53] gate f44cbed6b49e3996 {'w': 16, 'L': 5, 'd': 3, 'eta': 0.004303169682819307, 'K': 6256, 'wd': 1.1743374985986816e-06, 'init': 'he'}: kappa 0.102 nrmse 0.522 pass@1.25 True (110s)
+[11-14 04:18:53] trial 49 [ei] started: {'w': 16, 'L': 5, 'd': 3, 'eta': 0.004303169682819307, 'K': 6256, 'wd': 1.1743374985986816e-06, 'init': 'he'} (t_est 0.51 h)
+[11-14 04:23:54] t0049 n=10 elapsed 301s mean NRMSE 1.1315 split 1
+[11-14 04:45:18] t0049 n=20 elapsed 1585s mean NRMSE 1.0813 split 1
+[11-14 05:08:01] t0049 n=30 elapsed 2948s mean NRMSE 0.9641 split 1
+[11-14 05:31:40] t0049 n=40 elapsed 4368s mean NRMSE 0.8968 split 1
+[11-14 05:56:16] t0049 n=50 elapsed 5843s mean NRMSE 0.8326 split 1
+[11-14 06:21:24] t0049 n=60 elapsed 7352s mean NRMSE 0.7171 split 1
+[11-14 06:46:48] t0049 n=70 elapsed 8876s mean NRMSE 0.6505 split 1
+[11-14 07:12:23] t0049 n=80 elapsed 10411s mean NRMSE 0.6095 split 1
+[11-14 07:38:25] t0049 n=90 elapsed 11973s mean NRMSE 0.5770 split 1
+[11-14 08:04:56] t0049 n=100 elapsed 13563s mean NRMSE 0.5454 split 1
+[11-14 08:04:56] trial 49 finished: status ok J 0.8025666617543901 J_pass 0.9008698932881788 kappa_bar 0.12308869554896351 fits True seconds 13563
+[11-14 08:06:35] gate eda787790a1e1664 {'w': 64, 'L': 6, 'd': 3, 'eta': 0.009773495603673101, 'K': 3272, 'wd': 6.346224585521059e-06, 'init': 'default'}: kappa 2.022 nrmse 0.543 pass@1.25 False (97s)
+[11-14 08:09:26] gate c4bb8cd2268362e6 {'w': 512, 'L': 2, 'd': 7, 'eta': 0.00010043104678627775, 'K': 2884, 'wd': 0.00017274293803456014, 'init': 'default'}: kappa 0.025 nrmse 0.539 pass@1.25 True (171s)
+[11-14 08:09:26] trial 88 [ei] started: {'w': 512, 'L': 2, 'd': 7, 'eta': 0.00010043104678627775, 'K': 2884, 'wd': 0.00017274293803456014, 'init': 'default'} (t_est 3.13 h)
+[11-14 08:31:44] t0088 n=10 elapsed 1338s mean NRMSE 1.0636 split 2
+[11-14 10:01:26] t0088 n=20 elapsed 6720s mean NRMSE 1.0243 split 2
+[11-14 11:34:43] t0088 n=30 elapsed 12317s mean NRMSE 0.9297 split 2
+[11-14 13:10:13] t0088 n=40 elapsed 18046s mean NRMSE 0.8709 split 2
+[11-14 14:47:21] t0088 n=50 elapsed 23874s mean NRMSE 0.8083 split 2
+[11-14 16:22:18] t0088 n=60 elapsed 29572s mean NRMSE 0.6975 split 2
+[11-14 17:52:34] t0088 n=70 elapsed 34988s mean NRMSE 0.6471 split 2
+[11-14 19:22:53] t0088 n=80 elapsed 40407s mean NRMSE 0.6104 split 2
+[11-14 20:38:47] t0088 n=90 elapsed 44961s mean NRMSE 0.5769 split 2
+[11-14 21:42:55] t0088 n=100 elapsed 48808s mean NRMSE 0.5544 split 2
+[11-14 21:42:55] trial 88 finished: status ok J 0.7783719623113335 J_pass 0.9222543427376366 kappa_bar 0.037787348634362186 fits True seconds 48808
+[11-15 00:10:25] PS_WORKER_DONE

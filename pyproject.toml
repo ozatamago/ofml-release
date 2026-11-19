@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ofml"
+version = "0.1.0"
+description = "Code and run records for the experiments of Sections 6.2 and 6.3 of the OFML paper"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=2.0",
+    "scipy",
+    "matplotlib",
+    "scikit-learn",
+    "torch",
+    "gpytorch",
+    "pyyaml",
+    "jax",
+]
+
+[project.optional-dependencies]
+# glyf TrueType conversion of the Japanese font (scripts/otf2ttf_haranoaji.py), Japanese figures only
+fonts = ["fonttools"]
+# GPU runs of OFML-GPN (the paper's runs); install the jax CUDA plugin that matches your driver
+cuda = ["jax[cuda12]"]
+
+[tool.setuptools.packages.find]
+where = ["src", "third_party"]

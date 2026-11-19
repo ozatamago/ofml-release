@@ -1,0 +1,30 @@
+{
+ "latent_dim": 2,
+ "hidden": 4,
+ "n_hidden": 2,
+ "lr": 0.003000783133850832,
+ "wd": 0.001,
+ "steps": 400,
+ "n_members": 10,
+ "packed": true,
+ "selection": {
+  "rule": "min mean pooled NRMSE, reps 1000-1007, random designs n in {8,25,50,100}",
+  "final_stage": "hpo_v3c.jsonl (space v3, CPU, packed)",
+  "selected_trial": 0,
+  "objective": 0.8099203046216868,
+  "by_n": {
+   "8": 0.9761801709970296,
+   "25": 0.859946150788814,
+   "50": 0.747793869584218,
+   "100": 0.6557610271166857
+  },
+  "boundary_in_final_space": {},
+  "same_hyperparameters_as_v1": true,
+  "note": "v2 differs from v1 only in the implementation flag packed=True (typed MLPs on their own points + fused Adam)"
+ },
+ "variation": {
+  "changed": "n_members only (5 -> 10)",
+  "post_hoc": true,
+  "note": "chosen by the author after seeing the v1/v2 Ens results; other hyper-parameters frozen from v2; member seeds nested (seed_base + m, m=0..M-1, so members 0-4 equal those of M=5)"
+ }
+}

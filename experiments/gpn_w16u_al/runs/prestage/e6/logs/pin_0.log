@@ -1,0 +1,4 @@
+2026-11-16 19:32:05 processes 80 pinned-before 0 newly-pinned 80 by-node {0: 32, 1: 32, 2: 16} unpinned-left 0 free-left 0
+2026-11-16 19:33:12 moved the memory of 80 processes to the node of their logical CPU
+2026-11-16 19:43:14 moved the memory of 80 processes to the node of their logical CPU
+2026-11-16 21:16:18 the cgroup of is gone; exit

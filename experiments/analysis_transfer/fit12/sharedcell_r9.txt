@@ -1,0 +1,3 @@
+sharedcell rep  9  (n_train at t=0,50,100,200: 80,130,180,280)
+  steps   400: t=  0 kappa  0.72 nrmse 0.754 (27s) | t= 50 kappa  0.32 nrmse 0.378 (16s) | t=100 kappa  0.94 nrmse 0.210 (16s) | t=200 kappa  1.28 nrmse 0.214 (15s)
+  steps  4000: t=  0 kappa  0.51 nrmse 0.777 (298s) | t= 50 kappa  0.18 nrmse 0.362 (261s) | t=100 kappa  0.73 nrmse 0.217 (214s) | t=200 kappa  0.57 nrmse 0.192 (210s)

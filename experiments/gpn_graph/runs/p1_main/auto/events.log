@@ -1,0 +1,78 @@
+2026-11-08 15:49:09 xeon6130-v100 launch rep 16 OFML-GPN on xeon6130-v100 (valid 0, in flight 1)
+2026-11-08 15:49:09 xeon6130-v100 launch rep 17 OFML-GPN on xeon6130-v100 (valid 0, in flight 2)
+2026-11-08 15:49:09 xeon6130-v100 launch rep 18 OFML-GPN on xeon6130-v100 (valid 0, in flight 3)
+2026-11-08 15:49:09 xeon6130-v100 launch rep 19 OFML-GPN on xeon6130-v100 (valid 0, in flight 4)
+2026-11-08 15:49:09 xeon6130-v100 launch rep 20 OFML-GPN on xeon6130-v100 (valid 0, in flight 5)
+2026-11-08 15:49:09 xeon6130-v100 launch rep 21 OFML-GPN on xeon6130-v100 (valid 0, in flight 6)
+2026-11-08 15:49:09 xeon6130-v100 launch rep 22 OFML-GPN on xeon6530-h100nvl (valid 0, in flight 7)
+2026-11-08 15:49:10 xeon6130-v100 launch rep 23 OFML-GPN on xeon6530-h100nvl (valid 0, in flight 8)
+2026-11-08 15:49:11 xeon6530-h100nvl rep 22 ofml -> running
+2026-11-08 15:49:12 xeon6530-h100nvl rep 23 ofml -> running
+2026-11-08 15:49:27 xeon6130-v100 rep 21 ofml -> running
+2026-11-08 15:49:27 xeon6130-v100 rep 20 ofml -> running
+2026-11-08 15:49:28 xeon6130-v100 rep 18 ofml -> running
+2026-11-08 15:49:29 xeon6130-v100 rep 17 ofml -> running
+2026-11-08 15:49:29 xeon6130-v100 rep 19 ofml -> running
+2026-11-08 15:49:29 xeon6130-v100 rep 16 ofml -> running
+2026-11-08 17:19:05 xeon6530-h100nvl rep 22 ofml -> excluded
+2026-11-08 17:19:05 xeon6530-h100nvl launch rep 24 OFML-GPN on xeon6530-h100nvl (valid 0, in flight 8)
+2026-11-08 17:19:07 xeon6530-h100nvl rep 24 ofml -> running
+2026-11-08 18:57:32 xeon6530-h100nvl rep 24 ofml -> excluded
+2026-11-08 18:57:32 xeon6530-h100nvl launch rep 25 OFML-GPN on xeon6530-h100nvl (valid 0, in flight 8)
+2026-11-08 18:57:33 xeon6530-h100nvl rep 25 ofml -> running
+2026-11-08 20:22:27 xeon6530-h100nvl rep 25 ofml -> excluded
+2026-11-08 20:22:27 xeon6530-h100nvl launch rep 26 OFML-GPN on xeon6530-h100nvl (valid 0, in flight 8)
+2026-11-08 20:22:28 xeon6530-h100nvl rep 26 ofml -> running
+2026-11-08 21:32:07 xeon6130-v100 rep 20 ofml -> excluded
+2026-11-08 21:32:07 xeon6130-v100 launch rep 27 OFML-GPN on xeon6130-v100 (valid 0, in flight 8)
+2026-11-08 21:32:09 xeon6130-v100 rep 27 ofml -> running
+2026-11-08 22:01:40 xeon6530-h100nvl rep 26 ofml -> excluded
+2026-11-08 22:01:40 xeon6530-h100nvl launch rep 28 OFML-GPN on xeon6530-h100nvl (valid 0, in flight 8)
+2026-11-08 22:01:41 xeon6530-h100nvl rep 28 ofml -> running
+2026-11-09 00:29:00 xeon6130-v100 rep 18 ofml -> excluded
+2026-11-09 00:29:00 xeon6130-v100 launch rep 29 OFML-GPN on xeon6130-v100 (valid 0, in flight 8)
+2026-11-09 00:29:02 xeon6130-v100 rep 29 ofml -> running
+2026-11-09 01:36:15 xeon6130-v100 rep 16 ofml -> excluded
+2026-11-09 01:36:15 xeon6130-v100 launch rep 30 OFML-GPN on xeon6130-v100 (valid 0, in flight 8)
+2026-11-09 01:36:16 xeon6130-v100 rep 30 ofml -> running
+2026-11-09 04:21:50 xeon6530-h100nvl rep 23 ofml -> ok
+2026-11-09 04:21:50 xeon6530-h100nvl rep 23 follow-ups: Independent-GPN on xeon6530-h100nvl; neural on xeon6530-h100nvl
+2026-11-09 04:21:50 xeon6530-h100nvl launch rep 31 OFML-GPN on xeon6530-h100nvl (valid 1, in flight 8)
+2026-11-09 04:21:52 xeon6530-h100nvl rep 23 indep -> running
+2026-11-09 04:30:44 xeon6130-v100 rep 21 ofml -> excluded
+2026-11-09 04:30:44 xeon6130-v100 launch rep 32 OFML-GPN on xeon6130-v100 (valid 1, in flight 8)
+2026-11-09 04:31:14 xeon6130-v100 rep 32 ofml -> running
+2026-11-09 05:32:26 xeon6130-v100 rep 19 ofml -> ok
+2026-11-09 05:32:27 xeon6130-v100 rep 19 follow-ups: Independent-GPN on xeon6130-v100; neural on xeon6530-h100nvl
+2026-11-09 05:32:29 xeon6130-v100 rep 19 indep -> running
+2026-11-09 05:56:36 xeon6530-h100nvl rep 23 indep -> ok
+2026-11-09 05:56:38 xeon6530-h100nvl rep 31 ofml -> running
+2026-11-09 06:17:30 xeon6530-h100nvl rep 28 ofml -> ok
+2026-11-09 06:17:30 xeon6530-h100nvl rep 28 follow-ups: Independent-GPN on xeon6530-h100nvl; neural on xeon6530-h100nvl
+2026-11-09 06:17:32 xeon6530-h100nvl rep 28 indep -> running
+2026-11-09 07:21:51 xeon6530-h100nvl rep 31 ofml -> excluded
+2026-11-09 07:57:46 xeon6530-h100nvl rep 28 indep -> ok
+2026-11-09 09:21:31 xeon6130-v100 rep 19 indep -> ok
+2026-11-09 11:14:53 xeon6130-v100 rep 30 ofml -> excluded
+2026-11-09 11:14:53 xeon6130-v100 launch rep 33 OFML-GPN on xeon6130-v100 (valid 3, in flight 5)
+2026-11-09 11:15:06 xeon6130-v100 rep 33 ofml -> running
+2026-11-09 12:02:08 xeon6130-v100 rep 27 ofml -> ok
+2026-11-09 12:02:10 xeon6130-v100 rep 27 follow-ups: Independent-GPN on xeon6130-v100; neural on xeon6530-h100nvl
+2026-11-09 12:02:11 xeon6130-v100 rep 27 indep -> running
+2026-11-09 13:15:33 xeon6130-v100 rep 17 ofml -> ok
+2026-11-09 13:15:34 xeon6130-v100 rep 17 follow-ups: Independent-GPN on xeon6130-v100; neural on xeon6530-h100nvl
+2026-11-09 13:15:34 xeon6130-v100 rep 17 indep -> running
+2026-11-09 15:20:06 xeon6130-v100 rep 27 indep -> ok
+2026-11-09 18:30:43 xeon6130-v100 rep 17 indep -> ok
+2026-11-09 20:23:48 xeon6130-v100 rep 32 ofml -> ok
+2026-11-09 20:23:49 xeon6130-v100 rep 32 follow-ups: Independent-GPN on xeon6130-v100; neural on xeon6530-h100nvl
+2026-11-09 20:23:50 xeon6130-v100 rep 32 indep -> running
+2026-11-09 21:27:03 xeon6130-v100 rep 29 ofml -> ok
+2026-11-09 21:27:04 xeon6130-v100 rep 29 follow-ups: Independent-GPN on xeon6130-v100; neural on xeon6530-h100nvl
+2026-11-09 21:27:05 xeon6130-v100 rep 29 indep -> running
+2026-11-10 00:52:09 xeon6130-v100 rep 32 indep -> ok
+2026-11-10 01:35:10 xeon6130-v100 rep 29 indep -> ok
+2026-11-10 12:12:02 xeon6130-v100 rep 33 ofml -> ok
+2026-11-10 12:12:03 xeon6130-v100 rep 33 follow-ups: Independent-GPN on xeon6130-v100; neural on xeon6530-h100nvl
+2026-11-10 12:12:03 xeon6130-v100 rep 33 indep -> running
+2026-11-10 18:13:19 xeon6130-v100 rep 33 indep -> ok

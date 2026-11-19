@@ -1,0 +1,9 @@
+cd prestage && $PY -u ps_trial.py --psi ../runs/prestage/e5/psi/s04.json --reps 1016-1031 --c 0 --device cuda --out ../runs/prestage/e5/bundle/s04 > ../runs/prestage/e5/logs/bundle_s04.log 2>&1
+cd prestage && $PY -u ps_trial.py --psi ../runs/prestage/e5/psi/s03.json --reps 1016-1031 --c 0 --device cuda --out ../runs/prestage/e5/bundle/s03 > ../runs/prestage/e5/logs/bundle_s03.log 2>&1
+cd prestage && $PY -u ps_trial.py --psi ../runs/prestage/e5/psi/s02.json --reps 1016-1031 --c 0 --device cuda --out ../runs/prestage/e5/bundle/s02 > ../runs/prestage/e5/logs/bundle_s02.log 2>&1
+cd prestage && $PY -u ps_trial.py --psi ../runs/prestage/e5/psi/s06.json --reps 1016-1031 --c 0 --device cuda --out ../runs/prestage/e5/bundle/s06 > ../runs/prestage/e5/logs/bundle_s06.log 2>&1
+cd prestage && $PY -u ps_trial.py --psi ../runs/prestage/e5/psi/s01.json --reps 1016-1031 --c 0 --device cuda --out ../runs/prestage/e5/bundle/s01 > ../runs/prestage/e5/logs/bundle_s01.log 2>&1
+cd prestage && $PY -u ps_trial.py --psi ../runs/prestage/e5/psi/s05.json --reps 1016-1031 --c 0 --device cuda --out ../runs/prestage/e5/bundle/s05 > ../runs/prestage/e5/logs/bundle_s05.log 2>&1
+cd prestage && $PY -u ps_trial.py --psi ../runs/prestage/e5/psi/deep.json --reps 1016-1031 --c 0 --device cuda --out ../runs/prestage/e5/bundle/deep > ../runs/prestage/e5/logs/bundle_deep.log 2>&1
+cd prestage && $PY -u ps_trial.py --psi ../runs/prestage/e5/psi/shallow.json --reps 1016-1031 --c 0 --device cuda --out ../runs/prestage/e5/bundle/shallow > ../runs/prestage/e5/logs/bundle_shallow.log 2>&1
+cd prestage && $PY -u ps_trial.py --psi ../runs/prestage/e5/psi/old.json --reps 1016-1031 --c 0 --device cuda --out ../runs/prestage/e5/bundle/old > ../runs/prestage/e5/logs/bundle_old.log 2>&1

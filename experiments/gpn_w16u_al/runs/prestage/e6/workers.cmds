@@ -1,0 +1,8 @@
+cd prestage && $PY -u ps_search.py worker --camp e6 > ../runs/prestage/e6/logs/worker_${SLURM_JOB_ID}_0.log 2>&1
+cd prestage && $PY -u ps_search.py worker --camp e6 > ../runs/prestage/e6/logs/worker_${SLURM_JOB_ID}_1.log 2>&1
+cd prestage && $PY -u ps_search.py worker --camp e6 > ../runs/prestage/e6/logs/worker_${SLURM_JOB_ID}_2.log 2>&1
+cd prestage && $PY -u ps_search.py worker --camp e6 > ../runs/prestage/e6/logs/worker_${SLURM_JOB_ID}_3.log 2>&1
+cd prestage && $PY -u ps_search.py worker --camp e6 > ../runs/prestage/e6/logs/worker_${SLURM_JOB_ID}_4.log 2>&1
+cd prestage && $PY -u ps_search.py worker --camp e6 > ../runs/prestage/e6/logs/worker_${SLURM_JOB_ID}_5.log 2>&1
+cd prestage && $PY -u ps_search.py worker --camp e6 > ../runs/prestage/e6/logs/worker_${SLURM_JOB_ID}_6.log 2>&1
+cd prestage && $PY -u ps_search.py worker --camp e6 > ../runs/prestage/e6/logs/worker_${SLURM_JOB_ID}_7.log 2>&1

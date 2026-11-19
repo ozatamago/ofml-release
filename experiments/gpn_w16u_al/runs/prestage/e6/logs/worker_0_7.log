@@ -1,0 +1,53 @@
+[11-15 00:18:10] worker {'host': 'xeon6530-h100nvl', 'pid': 597520} campaign e6 device cuda noise 0.01170 tau 1.25
+[11-15 00:19:43] gate ab9a45961a3f9b1a {'w': 512, 'L': 2, 'd': 4, 'eta': 0.0019796169046711774, 'K': 5520, 'wd': 0.004211010751076234, 'init': 'default'}: kappa 0.348 nrmse 0.500 pass@1.25 True (90s)
+[11-15 00:19:43] trial 97 [ei] started: {'w': 512, 'L': 2, 'd': 4, 'eta': 0.0019796169046711774, 'K': 5520, 'wd': 0.004211010751076234, 'init': 'default'} (t_est 5.99 h)
+[11-15 00:49:12] t0097 n=10 elapsed 1769s mean NRMSE 1.1212 split 2
+[11-15 03:45:17] t0097 n=20 elapsed 12335s mean NRMSE 1.1049 split 2
+[11-15 06:46:19] t0097 n=30 elapsed 23196s mean NRMSE 1.0301 split 2
+[11-15 09:53:10] t0097 n=40 elapsed 34407s mean NRMSE 1.0148 split 2
+[11-15 13:07:10] t0097 n=50 elapsed 46047s mean NRMSE 0.9863 split 2
+[11-15 16:28:44] t0097 n=60 elapsed 58141s mean NRMSE 0.8962 split 2
+[11-15 20:00:58] t0097 n=70 elapsed 70875s mean NRMSE 0.8545 split 2
+[11-15 23:44:11] t0097 n=80 elapsed 84269s mean NRMSE 0.8336 split 2
+[11-16 03:21:08] t0097 n=90 elapsed 97285s mean NRMSE 0.8049 split 2
+[11-16 05:13:55] t0097 n=100 elapsed 104053s mean NRMSE 0.7802 split 2
+[11-16 05:13:55] trial 97 finished: status ok J 0.9424849426566224 J_pass 0.8724316333687563 kappa_bar 0.5146553094726374 fits True seconds 104053
+[11-16 09:44:15] gate 5ef2234ffbda68a5 {'w': 16, 'L': 7, 'd': 4, 'eta': 0.0019523110788181915, 'K': 6389, 'wd': 0.01, 'init': 'he'}: kappa 0.891 nrmse 0.489 pass@1.25 True (148s)
+[11-16 09:44:15] trial 115 [ei] started: {'w': 16, 'L': 7, 'd': 4, 'eta': 0.0019523110788181915, 'K': 6389, 'wd': 0.01, 'init': 'he'} (t_est 0.67 h)
+[11-16 09:51:58] t0115 n=10 elapsed 463s mean NRMSE 1.0914 split 1
+[11-16 10:19:25] t0115 n=20 elapsed 2110s mean NRMSE 1.0620 split 1
+[11-16 10:48:32] t0115 n=30 elapsed 3857s mean NRMSE 0.9936 split 1
+[11-16 11:20:07] t0115 n=40 elapsed 5753s mean NRMSE 0.9409 split 1
+[11-16 11:52:42] t0115 n=50 elapsed 7707s mean NRMSE 0.8871 split 1
+[11-16 12:26:00] t0115 n=60 elapsed 9705s mean NRMSE 0.8297 split 1
+[11-16 13:00:15] t0115 n=70 elapsed 11760s mean NRMSE 0.7886 split 1
+[11-16 13:34:52] t0115 n=80 elapsed 13838s mean NRMSE 0.7585 split 1
+[11-16 14:10:07] t0115 n=90 elapsed 15952s mean NRMSE 0.7343 split 1
+[11-16 14:46:00] t0115 n=100 elapsed 18106s mean NRMSE 0.7137 split 1
+[11-16 14:46:00] trial 115 finished: status ok J 0.8828703691692221 J_pass 0.8171068558890255 kappa_bar 0.8057236192296312 fits True seconds 18106
+[11-16 14:48:10] gate 97407930c38f123d {'w': 32, 'L': 7, 'd': 4, 'eta': 0.01, 'K': 4269, 'wd': 0.01, 'init': 'he'}: kappa 1.920 nrmse 0.511 pass@1.25 False (126s)
+[11-16 14:50:46] gate 9b1b59c73d2ebe44 {'w': 16, 'L': 7, 'd': 5, 'eta': 0.01, 'K': 6095, 'wd': 0.01, 'init': 'he'}: kappa 2.111 nrmse 0.524 pass@1.25 False (156s)
+[11-16 14:53:29] gate eac8341af1e2f9a9 {'w': 16, 'L': 7, 'd': 4, 'eta': 0.01, 'K': 6400, 'wd': 0.01, 'init': 'he'}: kappa 2.071 nrmse 0.525 pass@1.25 False (163s)
+[11-16 14:55:56] gate c0013e20951ccae5 {'w': 16, 'L': 7, 'd': 4, 'eta': 0.01, 'K': 5701, 'wd': 0.01, 'init': 'he'}: kappa 2.085 nrmse 0.526 pass@1.25 False (146s)
+[11-16 14:58:20] gate a6c3360b4c753157 {'w': 16, 'L': 7, 'd': 4, 'eta': 0.01, 'K': 5626, 'wd': 0.01, 'init': 'he'}: kappa 2.087 nrmse 0.525 pass@1.25 False (144s)
+[11-16 15:00:40] gate 768ef23c07042264 {'w': 16, 'L': 7, 'd': 4, 'eta': 0.01, 'K': 5483, 'wd': 0.01, 'init': 'he'}: kappa 2.084 nrmse 0.525 pass@1.25 False (140s)
+[11-16 15:03:24] gate db08164be20c0cc1 {'w': 16, 'L': 7, 'd': 4, 'eta': 0.01, 'K': 6400, 'wd': 0.008974311101130063, 'init': 'he'}: kappa 1.937 nrmse 0.518 pass@1.25 False (163s)
+[11-16 15:06:08] gate 634bedb59b111b83 {'w': 16, 'L': 7, 'd': 4, 'eta': 0.01, 'K': 6400, 'wd': 0.008927378703028606, 'init': 'he'}: kappa 1.966 nrmse 0.518 pass@1.25 False (164s)
+[11-16 15:08:52] gate 6774e5f943e3dc40 {'w': 16, 'L': 7, 'd': 5, 'eta': 0.009676401135786735, 'K': 6400, 'wd': 0.01, 'init': 'he'}: kappa 2.142 nrmse 0.533 pass@1.25 False (164s)
+[11-16 15:10:41] gate 63a1a93fa8b32403 {'w': 16, 'L': 7, 'd': 4, 'eta': 0.009755528674974196, 'K': 4238, 'wd': 0.008958420222870838, 'init': 'he'}: kappa 1.995 nrmse 0.522 pass@1.25 False (109s)
+[11-16 15:13:25] gate e9e36fbd177ca209 {'w': 16, 'L': 7, 'd': 4, 'eta': 0.009461669933331588, 'K': 6400, 'wd': 0.01, 'init': 'he'}: kappa 1.965 nrmse 0.516 pass@1.25 False (164s)
+[11-16 15:16:01] gate c46365de0d4089e6 {'w': 32, 'L': 7, 'd': 4, 'eta': 0.008693314963876703, 'K': 5317, 'wd': 0.01, 'init': 'he'}: kappa 1.677 nrmse 0.499 pass@1.25 False (156s)
+[11-16 15:19:06] gate eea9775d0806c93d {'w': 256, 'L': 3, 'd': 6, 'eta': 0.0021031047427514547, 'K': 4470, 'wd': 0.005918289659740506, 'init': 'default'}: kappa 1.051 nrmse 0.506 pass@1.25 True (185s)
+[11-16 15:19:06] trial 128 [ei] started: {'w': 256, 'L': 3, 'd': 6, 'eta': 0.0021031047427514547, 'K': 4470, 'wd': 0.005918289659740506, 'init': 'default'} (t_est 1.99 h)
+[11-16 15:35:57] t0128 n=10 elapsed 1011s mean NRMSE 1.1053 split 1
+[11-16 16:27:32] t0128 n=20 elapsed 4106s mean NRMSE 1.0496 split 1
+[11-16 17:03:38] t0128 n=30 elapsed 6272s mean NRMSE 1.0002 split 1
+[11-16 17:31:26] t0128 n=40 elapsed 7940s mean NRMSE 0.9578 split 1
+[11-16 17:55:44] t0128 n=50 elapsed 9398s mean NRMSE 0.9244 split 1
+[11-16 18:17:57] t0128 n=60 elapsed 10731s mean NRMSE 0.8419 split 1
+[11-16 18:41:10] t0128 n=70 elapsed 12124s mean NRMSE 0.8000 split 1
+[11-16 19:02:12] t0128 n=80 elapsed 13386s mean NRMSE 0.7771 split 1
+[11-16 19:15:05] t0128 n=90 elapsed 14158s mean NRMSE 0.7522 split 1
+[11-16 19:28:00] t0128 n=100 elapsed 14934s mean NRMSE 0.7360 split 1
+[11-16 19:28:00] trial 128 finished: status ok J 0.893148287029685 J_pass 0.8405905520536079 kappa_bar 1.0028631027058261 fits True seconds 14934
+[11-16 19:28:03] PS_WORKER_DONE

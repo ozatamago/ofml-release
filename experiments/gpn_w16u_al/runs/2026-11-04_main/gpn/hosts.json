@@ -1,0 +1,21 @@
+{
+ "source": "first line of the Slurm log of each rep (host name replaced by the machine label); rep 0-4 have no config.host in their records",
+ "host_by_rep": {
+  "0": "xeon6530-h100nvl",
+  "1": "xeon6530-h100nvl",
+  "2": "xeon6530-h100nvl",
+  "3": "xeon6530-h100nvl",
+  "4": "xeon6530-h100nvl",
+  "5": "xeon6530-h100nvl",
+  "6": "xeon6530-h100nvl",
+  "7": "xeon6530-h100nvl",
+  "8": "xeon6530-h100nvl",
+  "9": "xeon6530-h100nvl",
+  "10": "xeon6530-h100nvl",
+  "11": "xeon6130-v100",
+  "12": "xeon6130-v100",
+  "13": "xeon6130-v100",
+  "14": "xeon6130-v100",
+  "15": "xeon6130-v100"
+ }
+}

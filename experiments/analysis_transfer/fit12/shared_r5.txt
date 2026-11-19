@@ -1,0 +1,3 @@
+shared     rep  5  (n_train at t=0,50,100,200: 80,130,180,280)
+  steps   400: t=  0 kappa  1.65 nrmse 1.228 (26s) | t= 50 kappa  1.82 nrmse 1.076 (5s) | t=100 kappa  1.94 nrmse 0.992 (5s) | t=200 kappa  2.64 nrmse 0.851 (5s)
+  steps  4000: t=  0 kappa  1.63 nrmse 1.220 (72s) | t= 50 kappa  1.77 nrmse 1.081 (57s) | t=100 kappa  1.89 nrmse 0.987 (54s) | t=200 kappa  2.50 nrmse 0.874 (53s)

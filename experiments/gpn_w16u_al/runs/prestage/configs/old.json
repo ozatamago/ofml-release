@@ -1,0 +1,10 @@
+{
+ "latent_dim": 2,
+ "n_members": 5,
+ "packed": true,
+ "hidden": 4,
+ "n_hidden": 2,
+ "lr": 0.003000783133850832,
+ "wd": 0.001,
+ "steps": 400
+}

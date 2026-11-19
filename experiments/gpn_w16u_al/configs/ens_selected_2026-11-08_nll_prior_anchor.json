@@ -1,0 +1,43 @@
+{
+ "latent_dim": 9,
+ "hidden": 3,
+ "n_hidden": 2,
+ "lr": 0.011357203702033367,
+ "wd": 4.296834813487446e-06,
+ "steps": 1600,
+ "n_members": 5,
+ "packed": true,
+ "prior_scale": 1.3226318038138773,
+ "anchor": true,
+ "selection": {
+  "rule": "min mean Gaussian NLL of the noise-free truth under N(ens mean, ens var + 0.01), reps 1000-1007, random designs n in {8,25,50,100}",
+  "variant": "randomized prior functions (prior_scale) + anchored weight decay (anchor)",
+  "file": "runs/ens_hpo_uq_2026-11-08/hpo_nll_prior_anchor.jsonl (space v3p, CPU 1 thread/worker, packed, anchor)",
+  "selected_trial": 14,
+  "objective": 1.6939058888296805,
+  "by_n": {
+   "8": 2.645592632284106,
+   "25": 2.045355003294479,
+   "50": 1.4430522751623642,
+   "100": 0.6416236445777737
+  },
+  "mean_nrmse": 0.8646069016954981,
+  "mean_cov95": 0.715850830078125,
+  "by_n_nrmse": {
+   "8": 0.9728511672790778,
+   "25": 0.9306542379569402,
+   "50": 0.8698251401147585,
+   "100": 0.6850970614312157
+  },
+  "by_n_cov95": {
+   "8": 0.63818359375,
+   "25": 0.7213134765625,
+   "50": 0.728759765625,
+   "100": 0.775146484375
+  },
+  "boundary_in_space": {
+   "steps_idx": "upper"
+  },
+  "note": "post hoc: the NLL criterion and the two techniques were chosen after seeing the ens_v2 production results"
+ }
+}

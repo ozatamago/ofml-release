@@ -1,0 +1,14 @@
+[11-13 22:55:27] worker {'host': 'xeon6530-h100nvl', 'pid': 8503} campaign e4 device cuda noise 0.00100 tau 1.25
+[11-13 22:55:27] trial 1 [init] started: {'w': 512, 'L': 2, 'd': 6, 'eta': 0.00021852967992707484, 'K': 5268, 'wd': 0.0005376571359997573, 'init': 'he'} (t_est 5.71 h)
+[11-13 23:37:42] t0001 n=10 elapsed 2535s mean NRMSE 1.1239 split 2
+[11-14 02:24:15] t0001 n=20 elapsed 12528s mean NRMSE 1.0721 split 2
+[11-14 05:10:52] t0001 n=30 elapsed 22525s mean NRMSE 0.9593 split 2
+[11-14 08:04:37] t0001 n=40 elapsed 32950s mean NRMSE 0.9293 split 2
+[11-14 11:04:07] t0001 n=50 elapsed 43720s mean NRMSE 0.8954 split 2
+[11-14 13:34:02] t0001 n=60 elapsed 52715s mean NRMSE 0.7912 split 2
+[11-14 15:24:54] t0001 n=70 elapsed 59367s mean NRMSE 0.7231 split 2
+[11-14 17:05:24] t0001 n=80 elapsed 65397s mean NRMSE 0.6863 split 2
+[11-14 18:33:33] t0001 n=90 elapsed 70685s mean NRMSE 0.6538 split 2
+[11-14 19:55:26] t0001 n=100 elapsed 75599s mean NRMSE 0.6299 split 2
+[11-14 19:55:26] trial 1 finished: status ok J 0.8473084072751476 J_pass 0.9153174540965605 kappa_bar 0.3313474987360223 fits True seconds 75599
+[11-15 00:10:37] PS_WORKER_DONE
