@@ -2,9 +2,9 @@
 
 Step 2 (deep ensembles, CPU, one thread) uses the settings of the paper's runs, so the error curves must equal the
 published ones:
-  Section 6.2, OFML-Ens, true function 2, t = 0..10   vs experiments/p1_neural/runs/main_2026-11-08/ofml/rep_02.json
+  Section 6.2, OFML-Ens, true function 2, t = 0..10   vs transfer/ensembles/runs/main_2026-11-08/ofml/rep_02.json
   Section 6.3, OFML-Ens (shallow reference), rep 0, IVR
-                                                      vs experiments/gpn_w16u_al/runs/prestage/prod_eval_fz/shallow/ens
+                                                      vs acquisition/runs/prestage/prod_eval_fz/shallow/ens
 Step 3 (OFML-GPN, GPU) uses fewer particles and pCN updates than the paper; only the completion of the runs is checked.
 
 usage: python scripts/check_tutorial.py [--gpu]
@@ -19,7 +19,6 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 TUT = ROOT / "tutorial_runs"
-EXP = ROOT / "experiments"
 TOL = 1e-9
 
 
@@ -33,17 +32,17 @@ def compare(name: str, got, ref) -> bool:
 
 def main() -> None:
     ok = True
-    t = json.loads((TUT / "p1_neural" / "ofml" / "rep_02.json").read_text())["rounds"]["nrmse"]
-    r = json.loads((EXP / "p1_neural" / "runs" / "main_2026-11-08" / "ofml" / "rep_02.json").read_text())["rounds"]["nrmse"]
+    t = json.loads((TUT / "transfer_ensembles" / "ofml" / "rep_02.json").read_text())["rounds"]["nrmse"]
+    r = json.loads((ROOT / "transfer" / "ensembles" / "runs" / "main_2026-11-08" / "ofml" / "rep_02.json").read_text())["rounds"]["nrmse"]
     ok &= compare("Section 6.2, OFML-Ens, NRMSE(t), t = 0..10", t, r[:len(t)])
 
-    t = json.loads((TUT / "w16u" / "ens" / "rep_0000_ivr.json").read_text())["rounds"]["nrmse"]
-    r = json.loads((EXP / "gpn_w16u_al" / "runs" / "prestage" / "prod_eval_fz" / "shallow" / "ens"
+    t = json.loads((TUT / "acquisition" / "ens" / "rep_0000_ivr.json").read_text())["rounds"]["nrmse"]
+    r = json.loads((ROOT / "acquisition" / "runs" / "prestage" / "prod_eval_fz" / "shallow" / "ens"
                     / "rep_0000_ivr.json").read_text())["rounds"]["nrmse"]
     ok &= compare("Section 6.3, OFML-Ens (shallow reference), IVR, NRMSE per round", t, r)
 
     if "--gpu" in sys.argv:
-        for p in (TUT / "ofml_gpn" / "rep_02.json", TUT / "w16u" / "gpn" / "rep_0000_ivr.json"):
+        for p in (TUT / "transfer_gpn" / "rep_02.json", TUT / "acquisition" / "gpn" / "rep_0000_ivr.json"):
             st = json.loads(p.read_text())["status"] if p.exists() else "missing"
             good = p.exists() and st in ("ok", "excluded")
             ok &= good

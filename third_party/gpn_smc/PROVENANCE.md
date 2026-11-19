@@ -1,11 +1,11 @@
 # gpn_smc -- provenance
 
 Copy of the `*.py` files of `cx_bayes/gpn_smc/` (an unpublished repository of the authors), taken on 2026-11-19.
-Section 6.3 (`experiments/gpn_w16u_al/w16u_gpn.py`) imports this package and uses `SharedProtocolGpnBackend`, `assimilate_u15`,
+Section 6.3 (`acquisition/w16u_gpn.py`) imports this package and uses `SharedProtocolGpnBackend`, `assimilate_u15`,
 `padded_observations_u15`, `PcnBetaState`, `ProtocolLibrarySpec` and `normalize_logweights`.
 
-All files have the same md5 as the copy of 2026-11-04T17:52 JST from which `experiments/gpn_graph/ofml_gpn/` was made
-(`experiments/gpn_graph/PROVENANCE.md`), except `graph_backends.py`, which was changed on 2026-11-05.
+All files have the same md5 as the copy of 2026-11-04T17:52 JST from which `transfer/gpn/ofml_gpn/` was made
+(`transfer/gpn/PROVENANCE.md`), except `graph_backends.py`, which was changed on 2026-11-05.
 `graph_backends.py` is imported by `__init__.py` but is not used by Section 6.3.
 
 | file | md5 |

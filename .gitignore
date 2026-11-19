@@ -5,5 +5,6 @@ fonts/
 tutorial_runs/
 *.egg-info/
 .venv/
-experiments/gpn_w16u_al/runs/jax_cache/
-experiments/gpn_w16u_al/runs/2026-11-04_main/analysis_*/
+acquisition/runs/jax_cache/
+acquisition/runs/2026-11-04_main/analysis_*/
+transfer/analysis/coverage_by_t_*.md

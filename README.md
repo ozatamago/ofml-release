@@ -1,51 +1,54 @@
-# OFML: code and run records of the experiments (Sections 6.2 and 6.3)
+# Object-Flow Machine Learning: Operation-Level Surrogate Modeling for Self-Driving Laboratories
 
-This repository contains the code and the run records of the two experiments of the paper on OFML
-(surrogate models composed of operation-type modules along a typed protocol DAG):
+This repository is the official code and run records of the experiments in Sections 6.2 and 6.3 of the paper
+**Object-Flow Machine Learning: Operation-Level Surrogate Modeling for Self-Driving Laboratories**
+(Yusuke Ozaki, Kazunari Kaizu, Koichi Takahashi; arXiv link to be added).
 
-- **Section 6.2, transfer across protocols** (internal name `p1`): OFML-GPN, Independent-GPN and four deep-ensemble
-  surrogates (OFML-Ens, Shared-DAG-Ens, DAGNN-Cat-Ens, Shared-Ens) on 12 true functions.
-- **Section 6.3, acquisition functions and uniform consistency** (internal name `w16u`, the family PB-W16U):
-  OFML-GPN and OFML-Ens with IVR, MaxVar, space-filling and random acquisition on 16 true functions.
+![OFML overview](docs/overview.png)
 
-The run records are sufficient to regenerate every table and figure of these sections and of the corresponding
-appendices without running the surrogate models again. The scripts that ran the experiments are included with the
-settings used for the paper.
+Object-Flow Machine Learning (OFML) represents each experimental protocol as a typed directed acyclic graph of
+operations, shares one module per operation type across protocols, composes the modules along the graph, and learns
+only from terminal measurements. This enables zero-shot transfer to new protocols and adaptation from target
+measurements. This repository reproduces every table and figure of the two experiments from the published run
+records, and contains the code that produced those records.
 
 ## Contents
 
+- [Repository structure](#repository-structure)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Reproducing the paper's tables and figures](#reproducing-the-papers-tables-and-figures)
+- [Results](#results)
+- [Tutorial: small runs of the models](#tutorial-small-runs-of-the-models)
+- [Internal names](#internal-names)
+- [License](#license)
+- [Citation](#citation)
+
+## Repository structure
+
 ```
-src/ofml/                      the ofml package (operation models of the deep ensembles)
-third_party/gpn_smc/           OFML-GPN engine used by Section 6.3 (copy; see its PROVENANCE.md)
-scripts/                       paths (ofml_paths.py), figure style and colours, Japanese font conversion
-experiments/
-  gpn_graph/                   Section 6.2, OFML-GPN and Independent-GPN (engine: gpn_graph/ofml_gpn/, see PROVENANCE.md)
-    runs/p1_main/problems/     the true functions (rep_NN.npz) and the tuning functions (tune_NN.npz)
-    runs/p1_main/ofml_gpn/     run records of OFML-GPN (rep_NN.json, rep_NN.npz; stopped/ = runs stopped early)
-    runs/p1_main/indep_gpn/    run records of Independent-GPN
-    runs/p1_main/exclusion/    judgments.csv: the exclusion decision for every drawn true function
-    runs/p1_main/auto/         log of the replacement procedure (rep 16 onwards)
-    runs/p1_main/diag/         the test with 4x particles / 4x pCN updates
-  p1_neural/                   Section 6.2, the four deep ensembles
-    runs/main_2026-11-08/      run records (ofml, sharedcell = Shared-DAG-Ens, dagnn_cat, shared)
-    runs/hpo_2026-11-05*/      hyperparameter search records and the selected settings
-  analysis_transfer/           Section 6.2: tables, figures, coverage, fit check (fit12/ = its outputs)
-  gpn_w16u_al/                 Section 6.3, OFML-GPN (w16u_gpn.py) and OFML-Ens (w16u_ens.py)
-    teachers/                  the true functions (rep_XXXX.npz)
-    runs/2026-11-04_main/gpn/  run records of OFML-GPN
-    runs/prestage/prod_eval_fz/{s04,p02,shallow}/ens/   run records of OFML-Ens (s04 = the setting of the main text)
-    runs/2026-11-04_main/ens_v2/                        run records of OFML-Ens with the old setting
-    runs/prestage/{e4,e5,e6,configs}/                   selection of the OFML-Ens setting
-    prestage/                  scripts of the setting selection; fz.py = the production wrapper of w16u_ens.py
-  analysis_tables/             appendix aggregates (exclusion, run time, fit, OFML-Ens settings, sensitivity)
+├── transfer/              Section 6.2, transfer across protocols (code, run records, analysis; see transfer/README.md)
+├── acquisition/           Section 6.3, acquisition functions and uniform consistency (see acquisition/README.md)
+├── src/ofml/              operation modules used by the deep ensembles
+├── third_party/gpn_smc/   OFML-GPN engine used by Section 6.3 (copy of the authors' code; see its PROVENANCE.md)
+├── scripts/               reproduce_paper.sh, comparison with the paper, paths, figure style, tutorial check
+└── docs/                  figures of this README
 ```
 
-The run records do not contain checkpoints. Machine names are replaced by `xeon6130-v100` (2x Xeon Gold 6130,
-8x Tesla V100 SXM2) and `xeon6530-h100nvl` (2x Xeon Gold 6530, 2x H100 NVL); Slurm job numbers are removed.
+Each experiment directory has its own README with a file-by-file description, the command for each table and
+figure, and the format of the run records. The run records (about 650 MB) are in the repository; checkpoints are not.
+
+## Requirements
+
+| Item | Requirement |
+|---|---|
+| OS | Linux (tested on Ubuntu 24.04) |
+| Python | 3.12 (the paper's runs); >= 3.10 |
+| Reproducing tables and figures; deep ensembles | CPU only |
+| OFML-GPN, Independent-GPN | NVIDIA GPU with CUDA 12 (JAX 0.10.2); the paper used H100 NVL and Tesla V100 SXM2 |
+| Time of the paper's runs (median per run) | OFML-GPN 15.1 h and Independent-GPN 3.9 h (Section 6.2), OFML-GPN 28.7 min (Section 6.3), on one GPU; deep ensembles 9.5 min to 13.5 h on one CPU thread |
 
 ## Installation
-
-Python 3.12 was used for the paper (Python >= 3.10 is required).
 
 ```bash
 git clone https://github.com/ozatamago/ofml-release.git
@@ -58,136 +61,137 @@ pip install -e .
 ```
 
 `requirements.txt` pins the versions used for the paper; the `--extra-index-url` option installs the CPU build of
-PyTorch (the deep ensembles ran on the CPU). For OFML-GPN on a GPU, additionally install the CUDA build of JAX:
+PyTorch (the deep ensembles ran on the CPU). For OFML-GPN, additionally install the CUDA build of JAX:
 
 ```bash
 pip install "jax[cuda12]==0.10.2"
 ```
 
-OFML-GPN requires a GPU. The engine `ofml_gpn` of Section 6.2 has a CPU switch (`OFML_GPN_ALLOW_CPU=1`) for tests,
-but CPU runs are too slow for anything but a few observations.
-
-## Tutorial
-
-All steps run from the repository root. Steps 1 and 2 use the CPU only and take about 6 minutes in total; step 3 needs a
-GPU and takes about 5 minutes (measured on one H100 NVL). Outputs go to `outputs/` (tables and figures)
-and `tutorial_runs/` (runs), both ignored by git.
-
-### 1. Regenerate the tables of Sections 6.2 and 6.3 from the run records
+## Reproducing the paper's tables and figures
 
 ```bash
-cd experiments/analysis_transfer
-python make_table_obj1.py --reps 2,4,5,9,11,12,15,17,19,23,27,28 --suffix _v12   # tab:exp-transfer
-python make_table_obj1_paired.py                                                 # tab:gpm-paired
-cd ../gpn_w16u_al
-python analyze_w16u.py runs/2026-11-04_main --ens-dir ../prestage/prod_eval_fz/s04/ens \
-    --outdir runs/2026-11-04_main/analysis_s04
-python make_table_obj2_paired.py runs/2026-11-04_main analysis_s04               # tab:acq-paired
-cd ../analysis_tables
-python table_exclusion.py                 # tab:gpm-exclusion and the per-function decisions
-python table_repro_time.py                # median run times of sec:repro
-python table_gpm_fit.py                   # tab:gpm-fit
-python table_acq_ens_settings.py          # tab:acq-ens-settings
-python sensitivity_p1_rule_fig4b.py       # sec:acq-sensitivity
-cd ../..
+bash scripts/reproduce_paper.sh
 ```
 
-The `.tex` tables are written to `outputs/tables/`. The scripts in `analysis_tables/` print each value next to the
-value printed in the paper and mark differences. `outputs/tables/table_obj1_v12_en.tex` should contain, for example,
-the row of OFML-GPN of tab:exp-transfer.
+This command regenerates, from the run records only, the tables, figures and appendix values listed below, prints
+each value next to the value in the paper, and checks that the `.tex` tables are identical to those of the paper.
+It uses the CPU only and takes about 30 seconds. Outputs go to `outputs/tables/` and `outputs/figures/`.
 
-### 2. Run the deep ensembles with small settings (CPU)
+| Paper | Script | Details |
+|---|---|---|
+| fig:exp-transfer, tab:exp-transfer | `transfer/analysis/plot_fig3_f4p_v2.py`, `make_table_obj1.py` | [transfer/README.md](transfer/README.md) |
+| Appendix: tab:gpm-paired, tab:gpm-exclusion, tab:gpm-fit, coverage | `transfer/analysis/` | [transfer/README.md](transfer/README.md) |
+| fig:exp-acquisition, tab:acq-paired | `acquisition/make_fig_obj2_f4p_v2.py`, `make_table_obj2_paired.py` | [acquisition/README.md](acquisition/README.md) |
+| Appendix: tab:acq-sd-err, tab:acq-ens-settings, sec:acq-sensitivity | `acquisition/` | [acquisition/README.md](acquisition/README.md) |
+| Appendix G: run times | `scripts/table_repro_time.py` | median wall-clock time per run, from the run records |
+
+## Results
+
+**Section 6.2** (12 true functions; T = 200 target observations selected by IVR; mean over the true functions; bold =
+best in the column). Command: `cd transfer/analysis && python make_table_obj1.py --reps 2,4,5,9,11,12,15,17,19,23,27,28 --suffix _v12`.
+
+| Surrogate model | All: NRMSE(0) | All: NRMSE(T) | All: AULC(T) | Serial: NRMSE(0) | Serial: NRMSE(T) | Serial: AULC(T) | Merge: NRMSE(0) | Merge: NRMSE(T) | Merge: AULC(T) |
+|---|---|---|---|---|---|---|---|---|---|
+| OFML-GPN | **0.883** | 0.207 | **0.302** | **0.671** | 0.310 | **0.403** | **1.111** | **0.198** | **0.313** |
+| Independent-GPN | 2.174 | **0.198** | 0.427 | 3.017 | **0.270** | 0.547 | 2.218 | 0.201 | 0.452 |
+| OFML-Ens | 1.024 | 0.312 | 0.477 | 0.933 | 0.402 | 0.544 | 1.245 | 0.342 | 0.551 |
+| Shared-DAG-Ens | 1.002 | 0.303 | 0.438 | 0.933 | 0.401 | 0.526 | 1.257 | 0.325 | 0.493 |
+| DAGNN-Cat-Ens | 1.125 | 0.325 | 0.475 | 1.130 | 0.419 | 0.589 | 1.359 | 0.356 | 0.519 |
+| Shared-Ens | 1.417 | 0.723 | 0.811 | 1.245 | 0.777 | 0.874 | 1.703 | 0.777 | 0.883 |
+
+**Section 6.3** (16 true functions; 92 acquisitions; paired difference of AULC(T): mean, 95% bootstrap interval, and
+the number of true functions on which the first acquisition function has the smaller AULC). Command: see
+[acquisition/README.md](acquisition/README.md).
+
+| Comparison | OFML-GPN | OFML-Ens |
+|---|---|---|
+| IVR - Space-filling | -0.166 [-0.206, -0.135], 16/16 | -0.072 [-0.125, -0.022], 13/16 |
+| MaxVar - Space-filling | -0.099 [-0.147, -0.048], 14/16 | -0.070 [-0.123, -0.017], 13/16 |
+| Random - Space-filling | +0.019 [-0.016, +0.057], 8/16 | +0.058 [+0.017, +0.099], 6/16 |
+| IVR - Random | -0.185 [-0.221, -0.153], 16/16 | -0.130 [-0.198, -0.071], 15/16 |
+| MaxVar - Random | -0.119 [-0.174, -0.059], 14/16 | -0.128 [-0.198, -0.066], 13/16 |
+
+## Tutorial: small runs of the models
+
+Step 1 uses the CPU only and takes about 4 minutes; step 2 needs a GPU and takes about 5 minutes (measured on one
+H100 NVL). Runs are written to `tutorial_runs/` (ignored by git).
+
+**1. Deep ensembles with the paper's settings, shortened (CPU)**
 
 ```bash
-cd experiments/p1_neural
+cd transfer/ensembles
 python p1_run.py --method ofml --problem rep:2 --T 10 --compile 1 --threads 1 \
-    --config runs/hpo_2026-11-05_wide/selected_ofml.json --out ../../tutorial_runs/p1_neural
-cd ../gpn_w16u_al
+    --config runs/hpo_2026-11-05_wide/selected_ofml.json --out ../../tutorial_runs/transfer_ensembles
+cd ../../acquisition
 python prestage/fz.py w16u_ens.py --reps 0 --policies ivr --config runs/prestage/configs/e5_shallow.json \
-    --device cpu --threads 1 --out ../../tutorial_runs/w16u
-cd ../..
+    --device cpu --threads 1 --out ../tutorial_runs/acquisition
+cd ..
 python scripts/check_tutorial.py
 ```
 
 The first command runs OFML-Ens of Section 6.2 on true function 2 for the first 10 acquisitions (the paper:
 `--T 200`; about 1 minute). The second runs OFML-Ens of Section 6.3 on true function 0 with IVR and the shallow
-reference setting of the appendix (all 92 acquisitions; about 3 minutes; the main text uses `e5_s04.json`, which
-takes about 13 hours per run). Both use the settings of the paper's runs (CPU, one thread, `--compile 1` in
-Section 6.2, `prestage/fz.py` in Section 6.3), so `check_tutorial.py` finds that their error curves equal the
-published run records (`p1_neural/runs/main_2026-11-08/ofml/rep_02.json` and
-`gpn_w16u_al/runs/prestage/prod_eval_fz/shallow/ens/rep_0000_ivr.json`). Without `--compile 1` or with more threads
-the curves differ slightly, because the floating-point operations are ordered differently.
+reference setting of the appendix (all 92 acquisitions; about 3 minutes; the main text uses `e5_s04.json`, which takes
+about 13 hours per run). Both use the paper's settings (one CPU thread; `--compile 1` in Section 6.2; `prestage/fz.py`
+in Section 6.3), so `check_tutorial.py` finds that their error curves equal the published run records. Without
+`--compile 1` or with more threads the curves differ slightly, because the floating-point operations are ordered
+differently.
 
-### 3. Run OFML-GPN with small settings (GPU)
+**2. OFML-GPN with fewer particles (GPU)**
 
 ```bash
-cd experiments/gpn_graph
+cd transfer/gpn
 python run_p1_main.py --problem runs/p1_main/problems/rep_02.npz --particles 1024 --pcn-steps 8 --T 5 \
-    --out ../../tutorial_runs/ofml_gpn
-cd ../gpn_w16u_al
-python w16u_gpn.py --reps 0 --policies ivr --particles 1024 --pcn-steps 8 --out ../../tutorial_runs/w16u
-cd ../..
+    --out ../../tutorial_runs/transfer_gpn
+cd ../../acquisition
+python w16u_gpn.py --reps 0 --policies ivr --particles 1024 --pcn-steps 8 --out ../tutorial_runs/acquisition
+cd ..
 python scripts/check_tutorial.py --gpu
 ```
 
-The first command assimilates the 80 observations of the source protocols (D_0) and 5 target observations (about
-2.5 minutes); the second runs all 92 acquisitions of Section 6.3 (about 2 minutes). The paper used 16384 particles
-and 96 pCN updates (`--particles 16384 --pcn-steps 96`, the defaults) and `--T 200` in Section 6.2, so the numbers
-differ from the run records; with 1024 particles the exclusion rule of Section 6.2 may be hit (the record then says
-`"excluded": true`). `--pcn-steps` must be a multiple of 8.
+The first command assimilates the 80 source observations (D_0) and 5 target observations (about 2.5 minutes); the
+second runs all 92 acquisitions of Section 6.3 (about 2 minutes). The paper used 16384 particles and 96 pCN updates
+(the defaults) and `--T 200` in Section 6.2, so the numbers differ from the run records; with 1024 particles the
+exclusion rule of Section 6.2 may be hit (the record then says `"excluded": true`). `--pcn-steps` must be a
+multiple of 8.
 
-### 4. Figures
+**Japanese figures.** The figure scripts accept `--lang ja`. This needs the Harano Aji Gothic font (SIL Open Font
+License 1.1, <https://github.com/trueroad/HaranoAjiFonts>): put its OpenType files in `fonts/` (or set
+`OFML_JA_FONT_DIR`) and run `python scripts/otf2ttf_haranoaji.py fonts` (`pip install fonttools`). The Japanese
+fig:exp-acquisition of the paper was made with `--ens-label 前段階で選んだ設定`.
 
-```bash
-cd experiments/analysis_transfer
-python plot_fig3_f4p_v2.py --reps 2,4,5,9,11,12,15,17,19,23,27,28 --lang en --out ../../outputs/figures/fig_obj1_v2
-python plot_protocols.py --lang en
-cd ../gpn_w16u_al
-python make_fig_obj2_f4p_v2.py runs/2026-11-04_main --ens-dir runs/prestage/prod_eval_fz/s04/ens \
-    --ens-label "setting selected in the pre-stage" --lang en --out ../../outputs/figures/fig_obj2_v2_s04
-python plot_protocols_w16u.py --lang en
-cd ../..
-```
+## Internal names
 
-The Japanese figures (`--lang ja`) need the Harano Aji Gothic font (SIL Open Font License 1.1,
-<https://github.com/trueroad/HaranoAjiFonts>). Put its OpenType files in `fonts/` (or set `OFML_JA_FONT_DIR`) and run
-`python scripts/otf2ttf_haranoaji.py fonts` (needs `pip install fonttools`) to create the TrueType files used by the
-figure scripts. The Japanese figures of the paper were made with `--ens-label 前段階で選んだ設定`.
+The file and directory names of the code and the run records keep the names used while the experiments were run.
 
-## Reproducing the runs
+| Internal name | Meaning |
+|---|---|
+| `p1`, `PB-P1-DRAFT` | the experiment of Section 6.2 and its benchmark |
+| `w16u`, `PB-W16U` | the experiment of Section 6.3 and its benchmark family |
+| `obj1`, `obj2` (figure and table scripts) | Section 6.2, Section 6.3 |
+| `rep_NN` | true function NN |
+| `ofml_gpn`, `indep_gpn` | OFML-GPN, Independent-GPN |
+| `ofml`, `sharedcell`, `dagnn_cat`, `shared` | OFML-Ens, Shared-DAG-Ens, DAGNN-Cat-Ens, Shared-Ens |
+| `prestage` | the selection of the OFML-Ens setting before the evaluation runs (Appendix F) |
+| `s04`, `p02`, `shallow`, `ens_v2` | OFML-Ens settings: the main text, p02, the shallow reference, the old setting |
+| `xeon6130-v100`, `xeon6530-h100nvl` | the two machines (2x Xeon Gold 6130 with 8x Tesla V100 SXM2; 2x Xeon Gold 6530 with 2x H100 NVL) |
 
-The commands of the paper's runs are recorded next to the run records:
-
-- Section 6.2, OFML-GPN and Independent-GPN: `experiments/gpn_graph/runs/p1_main/slurm/` (`p1_rep.sbatch` for the
-  first 16 true functions, `p1_auto.py` for the replacement procedure; `--abort-on-exclusion` stops a run when the
-  exclusion rule is hit).
-- Section 6.2, deep ensembles: `experiments/p1_neural/slurm/main_traj.sbatch` (one CPU thread per run) and
-  `hpo_method.sbatch` (hyperparameter search).
-- Section 6.3, OFML-GPN: `experiments/gpn_w16u_al/slurm/gpn_rep.sbatch`.
-- Section 6.3, OFML-Ens: `experiments/gpn_w16u_al/runs/prestage/prod_eval/prod_eval_fz.cmds` (one command per run,
-  through `prestage/fz.py`, which flushes subnormal numbers to zero) and `prestage/cpu_cmds.sbatch`.
-
-The Slurm scripts are records of the cluster used for the paper; set `OFML_ROOT` to the repository root and `PY` to
-the Python of the environment, and adapt the `#SBATCH` lines to your cluster. Comments in the code refer to design
-notes (`REPORTS/...`) that are not part of this repository.
-
-The true functions of Section 6.3 (`teachers/`) were generated by `make_teachers.py` with the functions of an
-unpublished repository of the authors (`OFML_CX_BAYES`); the cache is checked by `w16u_common.load_teacher` when it is
-read. The GPN record stores `teacher_sha256` of (truth, noisy - truth) and the OFML-Ens record of (truth, noise); the two
-hashes differ by floating-point rounding only.
-
-## Exclusion decisions (Appendix E.6)
-
-`experiments/gpn_graph/runs/p1_main/exclusion/judgments.csv` lists, for each true function drawn in Section 6.2
-(rep 0-15: the first 16; rep 16-28: drawn for replacement; rep 29-33: run after the five replacements were
-collected), the minimum of the effective sample size divided by the number of particles, whether the threshold 0.001
-was crossed, and at which stage (`source` = assimilation of D_0, `target` = target-protocol observations), for
-OFML-GPN and Independent-GPN, and whether the function entered the comparison. It is written by
-`experiments/analysis_tables/table_exclusion.py` from the run records; runs stopped before T = 200 are read from
-`<method>/stopped/rep_NN_rounds.json` (extracted from their checkpoints by
-`experiments/gpn_graph/scripts/extract_stopped_rounds.py`).
+Comments in the code refer to design notes (`REPORTS/...`) that are not part of this repository. The Slurm scripts
+record how the paper's runs were submitted on the authors' cluster; set `OFML_ROOT` to the repository root and `PY`
+to the Python interpreter, and adapt the `#SBATCH` lines to your cluster.
 
 ## License
 
-MIT (see `LICENSE`). The run records are distributed under the same terms. The Harano Aji fonts used for the
-Japanese figures are not included (SIL Open Font License 1.1).
+MIT (see [LICENSE](LICENSE)). The run records are distributed under the same terms. The dependencies are separate
+projects under their own licenses. The Harano Aji fonts are not included.
+
+## Citation
+
+```bibtex
+@article{ozaki2026ofml,
+  title   = {Object-Flow Machine Learning: Operation-Level Surrogate Modeling for Self-Driving Laboratories},
+  author  = {Ozaki, Yusuke and Kaizu, Kazunari and Takahashi, Koichi},
+  journal = {arXiv preprint},
+  year    = {2026}
+}
+```

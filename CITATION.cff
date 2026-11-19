@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this code or the run records, please cite the paper below."
+title: "Object-Flow Machine Learning: code and run records of Sections 6.2 and 6.3"
+type: software
+license: MIT
+repository-code: "https://github.com/ozatamago/ofml-release"
+authors:
+  - family-names: Ozaki
+    given-names: Yusuke
+  - family-names: Kaizu
+    given-names: Kazunari
+  - family-names: Takahashi
+    given-names: Koichi
+preferred-citation:
+  type: article
+  title: "Object-Flow Machine Learning: Operation-Level Surrogate Modeling for Self-Driving Laboratories"
+  authors:
+    - family-names: Ozaki
+      given-names: Yusuke
+    - family-names: Kaizu
+      given-names: Kazunari
+    - family-names: Takahashi
+      given-names: Koichi
+  journal: "arXiv preprint"
+  year: 2026

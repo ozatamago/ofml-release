@@ -1,0 +1,14 @@
+\begin{tabular}{@{}l rrr rrr rrr@{}}
+\toprule
+ & \multicolumn{3}{c}{All} & \multicolumn{3}{c}{Serial} & \multicolumn{3}{c}{Merge}\\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(l){8-10}
+Surrogate model & $\NRMSE(0)$ & $\NRMSE(T)$ & $\AULC(T)$ & $\NRMSE(0)$ & $\NRMSE(T)$ & $\AULC(T)$ & $\NRMSE(0)$ & $\NRMSE(T)$ & $\AULC(T)$\\
+\midrule
+OFML-GPN & \textbf{0.883} & 0.207 & \textbf{0.302} & \textbf{0.671} & 0.310 & \textbf{0.403} & \textbf{1.111} & \textbf{0.198} & \textbf{0.313} \\
+Independent-GPN & 2.174 & \textbf{0.198} & 0.427 & 3.017 & \textbf{0.270} & 0.547 & 2.218 & 0.201 & 0.452 \\
+OFML-Ens & 1.024 & 0.312 & 0.477 & 0.933 & 0.402 & 0.544 & 1.245 & 0.342 & 0.551 \\
+Shared-DAG-Ens & 1.002 & 0.303 & 0.438 & 0.933 & 0.401 & 0.526 & 1.257 & 0.325 & 0.493 \\
+DAGNN-Cat-Ens & 1.125 & 0.325 & 0.475 & 1.130 & 0.419 & 0.589 & 1.359 & 0.356 & 0.519 \\
+Shared-Ens & 1.417 & 0.723 & 0.811 & 1.245 & 0.777 & 0.874 & 1.703 & 0.777 & 0.883 \\
+\bottomrule
+\end{tabular}
