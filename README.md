@@ -88,7 +88,8 @@ It uses the CPU only and takes about 30 seconds. Outputs go to `outputs/tables/`
 | Appendix: tab:acq-paired, tab:acq-sd-err, tab:acq-ens-settings, sec:acq-sensitivity | `acquisition/` | [acquisition/README.md](acquisition/README.md) |
 | Appendix G: run times | `scripts/table_repro_time.py` | median wall-clock time per run, from the run records |
 
-Figures 1 and 2 of the paper are diagrams of the method and of an example protocol; they contain no experimental
+Figures 1 and 2 of the paper are diagrams of the method and of an example protocol, and Table 1 lists the factors of the
+experiments; they contain no experimental
 results and are not generated here.
 
 ## Results
