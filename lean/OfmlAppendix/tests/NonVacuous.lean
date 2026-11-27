@@ -130,4 +130,86 @@ example :
     subst y
     simp
 
+/-! ## Appendix D -/
+
+noncomputable def testGain (b : Bool) : ℝ := if b then 1 else 0
+noncomputable def testGainHat (b : Bool) : ℝ := if b then 1 else 1 / 2
+
+-- The selected point `false` is not a maximizer, and `δ = 1/2` is attained.
+example :
+    (⨆ x, testGain x) - testGain false ≤
+      2 * (1 / 2 : ℝ) + ((⨆ x, testGainHat x) - testGainHat false) := by
+  apply approx_maximizer_gap
+  · exact (Set.finite_range testGainHat).bddAbove
+  · intro x
+    cases x <;> norm_num [testGain, testGainHat, abs_of_nonneg]
+
+example :
+    Filter.Tendsto (fun t : ℕ => 2 * (1 / ((t : ℝ) + 1)) + (1 / ((t : ℝ) + 1)))
+      Filter.atTop (𝓝 0) :=
+  approx_tolerance_tendsto (fun t : ℕ => 1 / ((t : ℝ) + 1)) (fun t : ℕ => 1 / ((t : ℝ) + 1))
+    tendsto_one_div_add_atTop_nhds_zero_nat tendsto_one_div_add_atTop_nhds_zero_nat
+
+example :
+    (⨆ x : ℝ, Real.cos x) = ⨆ q : Set.range ((↑) : ℚ → ℝ), Real.cos q := by
+  apply ciSup_eq_ciSup_dense
+  · exact Rat.denseRange_cast
+  · exact Real.continuous_cos
+  · exact ⟨1, by rintro _ ⟨x, rfl⟩; exact Real.cos_le_one x⟩
+
+example :
+    Measurable fun ω : ℝ => ⨆ x : ℝ, Real.cos (ω + x) := by
+  apply measurable_ciSup_of_continuous (Set.range ((↑) : ℚ → ℝ))
+  · exact Set.countable_range _
+  · exact Rat.denseRange_cast
+  · intro ω
+    exact Real.continuous_cos.comp (continuous_const.add continuous_id)
+  · intro ω
+    exact ⟨1, by rintro _ ⟨x, rfl⟩; exact Real.cos_le_one _⟩
+  · intro q _
+    exact (Real.continuous_cos.comp (continuous_id.add continuous_const)).measurable
+
+noncomputable def testV2 (t : ℕ) (_x : ℝ) : ℝ :=
+  if t = 0 then 2 else 0
+
+-- The drift inequality is strict at `t = 0` (0 ≤ 2 - 1).
+example :
+    (∀ n : ℕ,
+      (∑ t ∈ Finset.range n,
+        ∫ x : ℝ, testDelta t x ∂Measure.dirac 0) ≤
+        ∫ x : ℝ, testV2 0 x ∂Measure.dirac 0) ∧
+      Summable
+        (fun t => ∫ x : ℝ, testDelta t x ∂Measure.dirac 0) ∧
+      (∀ᵐ x : ℝ ∂Measure.dirac 0,
+        Summable (fun t => testDelta t x)) := by
+  apply summable_of_drift_le
+    (μ := Measure.dirac (0 : ℝ)) (V := testV2) (Δ := testDelta)
+  · intro t x
+    dsimp [testV2]
+    split_ifs <;> norm_num
+  · intro t x
+    dsimp [testDelta]
+    split_ifs <;> norm_num
+  · intro t
+    exact integrable_const _
+  · intro t
+    exact integrable_const _
+  · intro t
+    exact measurable_const.aemeasurable
+  · intro t
+    cases t with
+    | zero => simp [testV2, testDelta]
+    | succ t => simp [testV2, testDelta]
+
+example :
+    Filter.Tendsto (fun t : ℕ => ((1 : ℝ) / 2) ^ t) Filter.atTop (𝓝 0) := by
+  apply sup_tendsto_zero_of_selection
+    (fun t : ℕ => ((1 : ℝ) / 2) ^ t) (fun t : ℕ => ((1 : ℝ) / 2) ^ t) (fun _ => 0)
+  · exact summable_geometric_of_lt_one (by norm_num) (by norm_num)
+  · exact tendsto_const_nhds
+  · intro t
+    positivity
+  · intro t
+    simp
+
 end OfmlAppendixTests

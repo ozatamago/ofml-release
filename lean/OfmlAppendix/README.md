@@ -1,6 +1,6 @@
-# OfmlAppendix: Lean checks of selected proof steps in Appendices B and C
+# OfmlAppendix: Lean checks of selected proof steps in Appendices B, C, and D
 
-This Lean 4 project machine-checks self-contained steps of the proofs in Appendices B and C of the paper.
+This Lean 4 project machine-checks self-contained steps of the proofs in Appendices B, C, and D of the paper.
 It does not formalize the whole proof (stochastic processes, regular conditional distributions, and Bochner integrals are outside its scope).
 `SPEC.md` (in Japanese) lists each Lean theorem, the corresponding step of the paper, and the parts that are not formalized.
 
@@ -12,6 +12,12 @@ It does not formalize the whole proof (stochastic processes, regular conditional
 | `OfmlAppendix.covariance_near_maximizer` | Proof of Lemma B.7: a radius ρ common to the whole subsequence |
 | `OfmlAppendix.integral_lower_bound` | Proof of Lemma B.7: lower bound of the integral |
 | `OfmlAppendix.lipschitz_assembly` | Appendix C: construction of L_f and ω |
+| `OfmlAppendix.approx_maximizer_gap` | Lemma D.1: inequality for an approximate acquisition function |
+| `OfmlAppendix.approx_tolerance_tendsto` | Lemma D.1: the tolerance converges to zero |
+| `OfmlAppendix.ciSup_eq_ciSup_dense` | Proof of Proposition D.2: supremum over a dense set |
+| `OfmlAppendix.measurable_ciSup_of_continuous` | Proof of Proposition D.2: measurability of the supremum |
+| `OfmlAppendix.summable_of_drift_le` | Proof of Proposition D.2: telescoping and Tonelli step with the drift inequality |
+| `OfmlAppendix.sup_tendsto_zero_of_selection` | Proof of Proposition D.2: the supremum of the lower bound converges to zero |
 
 ## Build and check
 
